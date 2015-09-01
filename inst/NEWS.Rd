@@ -30,6 +30,7 @@
           \item Do not import \pkg{compiler} anymore.
           \item Add GitHub website as URL for package.
          \item Add bug report page. 
+         \item Add README for Github.
       }
   }
 }
