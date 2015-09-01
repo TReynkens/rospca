@@ -28,6 +28,8 @@
           \item Updated title to have correct upper case format.
           \item Import default packages as obliged by R 3.3.0.
           \item Do not import \pkg{compiler} anymore.
+          \item Add GitHub website as URL for package.
+         \item Add bug report page. 
       }
   }
 }
