@@ -1,0 +1,26 @@
+importFrom("stats", "IQR", "cov", "cov.wt", "mahalanobis", "median",
+             "princomp", "qchisq", "qnorm", "quantile", "sd", "var",
+             "weights")
+importFrom("graphics", "abline", "mtext", "par", "plot", "text")
+importFrom("parallel", "mclapply", "detectCores")
+importFrom("mrfDepth", "outlyingness", "adjOutlyingness", "medcouple")
+importFrom("robustbase", "h.alpha.n", "classPC")
+importFrom("pcaPP", "qn")
+importFrom("rrcov", "getCenter", "getCov", "CovMcd")
+import("rrcovHD")
+importFrom("elasticnet", "spca")
+importFrom("mvtnorm", "rmvnorm")
+importFrom("pracma", "orth") 
+importFrom("utils", "packageVersion")
+
+
+
+
+export("rospca")
+export("robpca")
+export("dataGen")
+export("angle")
+export("zeroMeasure")
+export("diagPlot")
+export("selectLambda")
+export("selectPlot")
