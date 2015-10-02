@@ -11,7 +11,7 @@ import("rrcovHD")
 importFrom("elasticnet", "spca")
 importFrom("mvtnorm", "rmvnorm")
 importFrom("pracma", "orth") 
-
+importFrom("compiler", "enableJIT", "setCompilerOptions")
 
 
 

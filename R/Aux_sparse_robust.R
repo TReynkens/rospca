@@ -1,6 +1,6 @@
 # Auxiliary functions for ROBPCA and ROSPCA; function for diagnostic plot.
 
-require('compiler') #Compile functions to increase speed, included in R base for versions >= R 2.13.0
+#Compile functions to increase speed, included in R base for versions >= R 2.13.0
 setCompilerOptions("suppressAll",TRUE)
 enableJIT(1) #just-in-time (JIT) compilation
 

@@ -1,6 +1,17 @@
 \name{NEWS}
 \title{News for package rospca}
 
+\section{Changes in rospca version 0.2-01 (2015-10-02)}{
+  \itemize{
+      \item Changes in R code:
+      \itemize{
+          \item Remove compatibility with old version of \pkg{mrfDepth}.
+          \item Import functions from \pkg{compiler}. 
+      }
+  }
+}
+
+
 \section{Changes in rospca version 0.2-00 (2015-09-01)}{
   \itemize{
       \item Changes in R code:
