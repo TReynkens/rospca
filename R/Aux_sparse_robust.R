@@ -24,9 +24,12 @@ unimcd <- function (x, h) {
   } else {
 
     #Sort data and keep indices
-    sorted <- sort(x,index.return=TRUE)
-    x <- sorted$x
-    I <- sorted$ix
+    # sorted <- sort(x,index.return=TRUE)
+    # x <- sorted$x
+    # I <- sorted$ix
+    
+    # Sort data
+    x <- sort(x)
     
     
     #####
