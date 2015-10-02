@@ -163,22 +163,10 @@ rospca_part1 = function(x, k=0, kmax=10, alpha=0.75, h=NULL, stand=TRUE, ndir='a
   
   if (skew) {
     # Adjusted outlyingness from mrfDepth package, fast enough to compute all directions
-    if(packageVersion("mrfDepth")>="0.3.05") {
-      # New package versions
-      outl_obj <- adjOutlyingness(T1, options = list(type="Rotation", ndir=ndir))
-    } else { 
-      # Old package versions
-      outl_obj <- adjOutlyingness(T1, type="Rotation", ndir=ndir)
-    }
+    outl_obj <- adjOutlyingness(T1, options = list(type="Rotation", ndir=ndir))
   } else {
     # Outlyingness from mrfDepth package, fast enough to compute all directions
-    if(packageVersion("mrfDepth")>="0.3.05") {
-      # New package versions
-      outl_obj <- outlyingness(T1, options = list(type="Rotation", h=h, ndir=ndir, stand="unimcd"))
-    } else {
-      # Old package versions
-      outl_obj <- outlyingness(T1, type="Rotation", h=h, ndir=ndir, stand="unimcd")
-    }  
+    outl_obj <- outlyingness(T1, options = list(type="Rotation", h=h, ndir=ndir, stand="unimcd"))
   }
 
   outl <- outl_obj$outlyingnessX
