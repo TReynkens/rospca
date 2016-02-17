@@ -5,7 +5,7 @@
 Selection of sparsity parameter using IC
 }
 \description{
-Selection of the sparsity parameter for ROSPCA and SCoTLASS using BIC of Hubert et al. (2015) and for SRPCA using BIC of Croux et al. (2013).
+Selection of the sparsity parameter for ROSPCA and SCoTLASS using BIC of Hubert et al. (2016) and for SRPCA using BIC of Croux et al. (2013).
 }
 \usage{
 selectLambda(X, k, kmax = 10, method = "ROSPCAg", lmin = 0, lmax = 2, 
@@ -55,7 +55,7 @@ True loadings matrix, a numeric matrix of size \eqn{p} by \eqn{k}. The default i
 
 }
 \details{
-We select an optimal value of \eqn{\lambda} for a certain method on a certain dataset by looking at an equidistant grid of \eqn{\lambda} values. For each value of \eqn{\lambda}, we apply the method on the dataset using this sparsity parameter, and compute an Information Criterion (IC). The optimal value of \eqn{\lambda} is then the one corresponding to the minimal IC. The ICs we consider are the BIC of for Hubert et al. (2015) for ROSPCA and SCoTLASS, and the BIC of Croux et al. (2013) for SRPCA.
+We select an optimal value of \eqn{\lambda} for a certain method on a certain dataset by looking at an equidistant grid of \eqn{\lambda} values. For each value of \eqn{\lambda}, we apply the method on the dataset using this sparsity parameter, and compute an Information Criterion (IC). The optimal value of \eqn{\lambda} is then the one corresponding to the minimal IC. The ICs we consider are the BIC of for Hubert et al. (2016) for ROSPCA and SCoTLASS, and the BIC of Croux et al. (2013) for SRPCA.
 }
 
 \value{
@@ -65,11 +65,11 @@ A list with components:\cr
 \item{Lambda}{Numeric vector containg the used values of \eqn{\lambda}.}
 \item{IC}{Numeric cector containing the IC values corresponding to all values of \eqn{\lambda} in \code{Lambda}.}
 \item{loadings}{Loadings obtained using method with sparsity parameter \code{lambda_opt}, a numeric matrix of size \eqn{p} by \eqn{k}.}
-\item{type}{Type of IC used: \code{BICod} (BIC of Hubert et al. (2015)) or \code{BIC} (BIC of Croux et al. (2013)).}
+\item{type}{Type of IC used: \code{BICod} (BIC of Hubert et al. (2016)) or \code{BIC} (BIC of Croux et al. (2013)).}
 \item{measure}{A numeric vector containing the standardised angles between the true and the estimated loadings matrix for each value of \eqn{\lambda} if a loadings matrix is given. When no loadings matrix is given as input (\code{P=NULL}), \code{measure} is equal to \code{NULL}.}
 }
 \references{
-Hubert, M., Reynkens, T., Schmitt, E. and Verdonck, T. (2015). ``Sparse PCA for High-Dimensional Data with Outliers,'' \emph{Technometrics}, \emph{accepted}.
+Hubert, M., Reynkens, T., Schmitt, E. and Verdonck, T. (2016). ``Sparse PCA for High-Dimensional Data with Outliers,'' \emph{Technometrics}, \emph{accepted}.
 
 Croux, C., Filzmoser, P., and Fritz, H. (2013), ``Robust Sparse Principal Component Analysis,'' \emph{Technometrics}, 55, 202--214.
 

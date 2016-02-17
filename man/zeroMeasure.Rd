@@ -34,7 +34,7 @@ A list with components:\cr
   \item{total}{Total zero measure, i.e. the average zero measure over all elements of an estimated loadings matrix and over all estimated loadings matrices.}
 }
 \references{
-Hubert, M., Reynkens, T., Schmitt, E. and Verdonck, T. (2015). ``Sparse PCA for High-Dimensional Data with Outliers,'' \emph{Technometrics}, \emph{accepted}.
+Hubert, M., Reynkens, T., Schmitt, E. and Verdonck, T. (2016). ``Sparse PCA for High-Dimensional Data with Outliers,'' \emph{Technometrics}, \emph{accepted}.
 }
 \author{
 Tom Reynkens

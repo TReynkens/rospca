@@ -33,7 +33,7 @@ rospca(X, k, kmax = 10, alpha = 0.75, h = NULL, ndir = "all", grid = TRUE,
 }
 
 \details{
-See Hubert et al. (2015) for more details. In contrast to the paper, we allow for SPCA (Zou et al., 2006) to be used as the sparse PCA method inside ROSPCA (\code{grid=FALSE}). Moreover, we also include a skewed version of ROSPCA (\code{skew=TRUE}) similar to the skewed version of ROBPCA (Hubert et al., 2009) which is not detailed in Hubert et al. (2015).
+See Hubert et al. (2016) for more details. In contrast to the paper, we allow for SPCA (Zou et al., 2006) to be used as the sparse PCA method inside ROSPCA (\code{grid=FALSE}). Moreover, we also include a skewed version of ROSPCA (\code{skew=TRUE}) similar to the skewed version of ROBPCA (Hubert et al., 2009) which is not detailed in Hubert et al. (2016).
 }
 
 \value{
@@ -66,7 +66,7 @@ A list with components:\cr
 
 
 \references{
-Hubert, M., Reynkens, T., Schmitt, E. and Verdonck, T. (2015). ``Sparse PCA for High-Dimensional Data with Outliers,'' \emph{Technometrics}, \emph{accepted}.
+Hubert, M., Reynkens, T., Schmitt, E. and Verdonck, T. (2016). ``Sparse PCA for High-Dimensional Data with Outliers,'' \emph{Technometrics}, \emph{accepted}.
 
 Hubert, M., Rousseeuw, P. J., and Vanden Branden, K. (2005), ``ROBPCA: A New Approach to Robust Principal Component Analysis,'' \emph{Technometrics}, 47, 64--79.
 

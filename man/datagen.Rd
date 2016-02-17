@@ -6,7 +6,7 @@ Generate sparse data with outliers
 }
 
 \description{
-Generate data using simulation scheme detailed in Hubert et al. (2015).
+Generate data using simulation scheme detailed in Hubert et al. (2016).
 }
 
 \usage{
@@ -43,7 +43,7 @@ A list with components:\cr
 }
 
 \references{
-Hubert, M., Reynkens, T., Schmitt, E. and Verdonck, T. (2015). ``Sparse PCA for High-Dimensional Data with Outliers,'' \emph{Technometrics}, \emph{accepted}.
+Hubert, M., Reynkens, T., Schmitt, E. and Verdonck, T. (2016). ``Sparse PCA for High-Dimensional Data with Outliers,'' \emph{Technometrics}, \emph{accepted}.
 
 Croux, C., Filzmoser, P., and Fritz, H. (2013), ``Robust Sparse Principal Component Analysis,'' \emph{Technometrics}, 55, 202--214.
 }
