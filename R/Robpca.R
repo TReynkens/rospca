@@ -340,14 +340,32 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
       ##
       mah <- mahalanobis(X2, center=rep(0, ncol(X2)), cov=diag(Xh.svd$eigenvalues[1:k], nrow=k))
       oldobj <- prod(Xh.svd$eigenvalues[1:k])
+
       niter <- 100
       for(j in 1:niter) {
         if(trace)
           cat("\nIter=",j, " h=", h, " k=", k, " obj=", oldobj, "\n")
+
         Xh <- X2[order(mah)[1:h], ]
+        Xh <- as.matrix(Xh)
+
         #Xh.svd <- classSVD(as.matrix(Xh))
-        Xh.svd <- classPC(as.matrix(Xh))
-        
+        # Problems with classPC from robustbase when 1 column,
+        # fix manually
+        if(ncol(Xh)==1) {
+          center <- mean(Xh)
+          nn <- nrow(Xh)
+          x <- scale(Xh, center=TRUE, scale=FALSE)
+          svd <- svd(x/sqrt(nn-1), nu=0)
+          loadings <- as.numeric(svd$v)
+          if(loadings<0) loadings <- -loadings
+          eigenvalues <- (svd$d)^2
+          Xh.svd <- list(loadings=loadings, eigenvalues=eigenvalues, rank=1,
+                         center=as.matrix(attr(x, "scaled:center")), scale=FALSE)
+        } else {
+          Xh.svd <- classPC(as.matrix(Xh))
+        }
+
         obj <- prod(Xh.svd$eigenvalues)
         #X2 <- (X2 - repmat(Xh.svd$center, n, 1)) %*% Xh.svd$loadings
         X2 <- (X2 - matrix(rep(Xh.svd$center, times=n), nrow=n, byrow=TRUE)) %*% Xh.svd$loadings
@@ -410,7 +428,7 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
       
     }
   }
-  
+
   #Change names of columns and/or rows
   if(is.list(dimnames(data)) && !is.null(dimnames(data)[[1]]))
   {
