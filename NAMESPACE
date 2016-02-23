@@ -3,7 +3,7 @@ importFrom("stats", "IQR", "cov", "cov.wt", "mahalanobis", "median",
              "weights")
 importFrom("graphics", "abline", "mtext", "par", "plot", "text")
 importFrom("parallel", "mclapply", "detectCores")
-importFrom("mrfDepth", "outlyingness", "adjOutlyingness", "medcouple")
+importFrom("mrfDepthLight", "outlyingness", "adjOutlyingness", "medcouple")
 importFrom("robustbase", "h.alpha.n", "classPC")
 importFrom("pcaPP", "qn")
 importFrom("rrcov", "getCenter", "getCov", "CovMcd")
