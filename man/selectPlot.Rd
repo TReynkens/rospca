@@ -16,7 +16,7 @@ selectPlot(sl, indicate = TRUE, main = NULL)
 Output from \code{selectLambda} function.
 }
   \item{indicate}{
-Logical indicating if the value of \eqn{\lambda} corresponding to minimal IC is indicated on the plot, default is \code{TRUE}.
+Logical indicating if the value of \eqn{\lambda} corresponding to the minimal IC is indicated on the plot, default is \code{TRUE}.
 }
   \item{main}{
 Title for the plot, default is \code{NULL} (no title).
