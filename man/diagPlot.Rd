@@ -32,7 +32,7 @@ To detect outliers, cut-offs for both distances are added, see Hubert et al. (20
 Hubert, M., Rousseeuw, P. J., and Vanden Branden, K. (2005), ``ROBPCA: A New Approach to Robust Principal Component Analysis,'' \emph{Technometrics}, 47, 64--79.
 }
 \author{
-Tom Reynkens with code from V. Todorov for \pkg{rrcov}.
+Tom Reynkens with code from Valentin Todorov for \pkg{rrcov} (released under GPL-3).
 }
 
 \examples{
