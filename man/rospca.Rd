@@ -78,7 +78,7 @@ Zou, H., Hastie, T., and Tibshirani, R. (2006), ``Sparse Principal Component Ana
 }
 
 \author{
-Tom Reynkens, based on R code from V. Todorov for \code{PcaHubert} in \pkg{rrcov}.
+Tom Reynkens, based on R code from Valentin Todorov for \code{PcaHubert} in \pkg{rrcov} (released under GPL-3).
 }
 
 %% \note{
