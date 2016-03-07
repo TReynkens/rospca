@@ -2,7 +2,7 @@
 \alias{robpca}
 
 \title{
-RObust PCA algorithm
+ROBust PCA algorithm
 }
 
 \description{
