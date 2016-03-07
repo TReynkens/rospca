@@ -6,7 +6,7 @@ RObust PCA algorithm
 }
 
 \description{
-ROBPCA algorithm of Hubert et al. (2005) including reweighting (Engelen et al., 2006) and possible extension to skewed data (Hubert et al., 2009).
+ROBPCA algorithm of Hubert et al. (2005) including reweighting (Engelen et al., 2005) and possible extension to skewed data (Hubert et al., 2009).
 }
 
 \usage{
@@ -20,7 +20,7 @@ robpca (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE,
 \item{k}{Number of principal components that will be used. When \code{k=0} (default), the number of components is selected using the criterion in Hubert et al. (2005).}
 \item{kmax}{Maximal number of principal components that will be computed, default is 10.} 
 \item{alpha}{Robustness parameter, default is 0.75.}
-\item{h}{The number of outliers the algorithm should resist is given by \eqn{(n-h+1)}. Any value for \code{h} between \eqn{n/2} and \eqn{n} may be specified. Default is \code{NULL} which uses \code{h=ceiling(alpha*n)+1}. Do not specify \code{alpha} and \code{h} at the same time. }
+\item{h}{The number of outliers the algorithm should resist is given by \eqn{n-h}. Any value for \code{h} between \eqn{n/2} and \eqn{n} may be specified. Default is \code{NULL} which uses \code{h=ceiling(alpha*n)+1}. Do not specify \code{alpha} and \code{h} at the same time. }
 \item{mcd}{Logical indicating if the MCD adaptation of ROBPCA may be applied when the number of variables is sufficiently small (see details). If \code{mcd=FALSE} (default), the full ROBPCA algorithm is always applied.}
 \item{ndir}{Number of directions used when computing the outlyingness (or the adjusted outlyingness when \code{skew=TRUE}), see \code{\link[mrfDepthLight]{outlyingness}} and \code{\link[mrfDepthLight]{adjOutlyingness}} for more details.}
 \item{skew}{Logical indicating if the version for skewed data (Hubert et al., 2009) is applied, default is \code{FALSE}.}
