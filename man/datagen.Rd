@@ -6,7 +6,7 @@ Generate sparse data with outliers
 }
 
 \description{
-Generate data using simulation scheme detailed in Hubert et al. (2016).
+Generate sparse data with outliers using simulation scheme detailed in Hubert et al. (2016).
 }
 
 \usage{
@@ -27,11 +27,13 @@ dataGen(m = 100, n = 100, p = 10, a = c(0.9,0.5,0), bLength = 4, SD = c(10,5,2),
 }
 
 \details{Firstly, we generate a correlation matrix such that it has sparse eigenvectors.
-We design the correlation matrix to have \eqn{length(a)=k+1} groups of variables with no correlation between variables from different groups. The first \eqn{k} groups consist of \code{bLength} variables each. The correlation between the different variables of the group is equal to \code{a[1]} for group 1, .... .  The (k+1)st group contains the remaining \eqn{p-k*bLength} variables, which we specify to have correlation \code{a[k+1]}. We also assume that variables from different groups are uncorrelated. \cr
+We design the correlation matrix to have \eqn{length(a)=k+1} groups of variables with no correlation between variables from different groups. The first \eqn{k} groups consist of \code{bLength} variables each. The correlation between the different variables of the group is equal to \code{a[1]} for group 1, .... .  The (k+1)st group contains the remaining \eqn{p-k*bLength} variables, which we specify to have correlation \code{a[k+1]}.  \cr
 Secondly, the correlation matrix \code{R} is transformed into the covariance matrix \eqn{\Sigma= V^{0.5} * R * V^{0.5}}, where \eqn{V=diag(SD^2)}.\cr
 Thirdly, the \code{n} observations are generated from a \eqn{p}-variate normal distribution with mean the \eqn{p}-variate zero-vector and covariance matrix \eqn{\Sigma}. Standard normally distributed noise terms are also added to each of the \code{p} variables to make the sparse structure of the data harder to detect.\cr
 Finally, \code{(100*eps)\%} of the data points are randomly replaced by outliers. 
-These outliers are generated from a \eqn{p}-variate normal distribution as in Croux et al. (2013). 
+These outliers are generated from a \eqn{p}-variate normal distribution as in Croux et al. (2013). \cr
+The \eqn{i}th eigenvector of \eqn{R}, for \eqn{i=1,...,k}, is given by a (sparse) vector with the \eqn{(bLength*(i-1)+1)}th till the \eqn{(bLength*i)}th elements equal to \eqn{1/\sqrt{bLength}} and all other elements equal to zero.\cr
+See Hubert et al. (2016) for more details.
 }
 
 \value{
