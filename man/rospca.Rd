@@ -20,7 +20,7 @@ rospca(X, k, kmax = 10, alpha = 0.75, h = NULL, ndir = "all", grid = TRUE,
 \item{k}{Number of principal components that will be used.}
 \item{kmax}{Maximal number of principal components that will be computed, default is 10.} 
 \item{alpha}{Robustness parameter, default is 0.75.}
-\item{h}{The number of outliers the algorithm should resist is given by \eqn{(n-h+1)}. Any value for \code{h} between \eqn{n/2} and \eqn{n} may be specified. Default is \code{NULL} which uses \code{h=ceiling(alpha*n)+1}. Do not specify \code{alpha} and \code{h} at the same time. }
+\item{h}{The number of outliers the algorithm should resist is given by \eqn{n-h}. Any value for \code{h} between \eqn{n/2} and \eqn{n} may be specified. Default is \code{NULL} which uses \code{h=ceiling(alpha*n)+1}. Do not specify \code{alpha} and \code{h} at the same time. }
 \item{ndir}{Number of directions used when computing the outlyingness (or the adjusted outlyingness when \code{skew=TRUE}), see \code{\link[mrfDepthLight]{outlyingness}} and \code{\link[mrfDepthLight]{adjOutlyingness}} for more details.}
 \item{grid}{Logical indicating if the grid version of sparse PCA should be used (\code{SPcaGrid} with \code{method="sd"} from \pkg{rrcovHD}). Otherwise, the version of Zou et al. (2006) is used (\code{spca} from \pkg{elasticnet}). Default is \code{TRUE}.}
 \item{lambda}{Sparsity parameter of \code{SPcaGrid} (when \code{grid=TRUE}) or ridge parameter of \code{spca} (when
