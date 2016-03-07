@@ -109,7 +109,7 @@ dataGen <- function (m = 100, n = 100, p = 10, a = c(0.9,0.5,0), bLength = 4, SD
   R <- genMat(p=p,a=a,bLength=bLength)
   
   k <- length(a)-1
-  if (k<2) {stop("a should have legnth at least 3.")}
+  if (k<2) {stop("a should have length at least 3.")}
   if (length(SD)!=length(a)) {stop("SD have the same length as a")}
   
   sdx <- rep(0,p)
