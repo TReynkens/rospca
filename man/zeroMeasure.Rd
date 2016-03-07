@@ -13,7 +13,7 @@ zeroMeasure(Plist, P, prec = 10^(-5))
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{Plist}{
-List of the estimated loadings matrices or a single estimated loadings matrix.
+List of estimated loadings matrices or a single estimated loadings matrix.
 All these matrices should be numeric matrices of size \eqn{p} by \eqn{k}.
 }
   \item{P}{
