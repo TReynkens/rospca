@@ -32,7 +32,7 @@ When \code{mcd=TRUE} and \eqn{n<5*p}, we do not apply the full ROBPCA algorithm.
 are then computed as the eigenvectors and eigenvalues of the MCD estimator applied to data set after the SVD step.
 An extensive description of the ROBPCA algorithm can be found in Hubert et al. (2005).
 
-This funtion is based extensively on \code{PcaHubert} from \pkg{rrcov}. Notable differences are the use of outlyingness measures from \pkg{mrfDepth}, the implementation of the extensions for skewed data and a different output format.
+This funtion is based extensively on \code{PcaHubert} from \pkg{rrcov}. Notable differences are the use of outlyingness measures from \pkg{mrfDepthLight}, the implementation of the extensions for skewed data and a different output format.
 }
 
 \value{
