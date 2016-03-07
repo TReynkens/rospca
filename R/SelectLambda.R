@@ -60,7 +60,7 @@ Bic <- function (Xcen, res, V0, fs = sd, aic = FALSE) {
 }
 
 #Selection of lambda using information criterion (IC)
-selectLambda <- function (X, k, kmax = 10, method = "ROSPCAg", lmin = 0, lmax = 2, lstep = 0.02,
+selectLambda <- function (X, k, kmax = 10, method = "ROSPCA", lmin = 0, lmax = 2, lstep = 0.02,
                          alpha = 0.75, stand = TRUE, skew = FALSE, multicore = FALSE, mc.cores = NULL, P = NULL,
                          ndir = "all"){
   X <- as.matrix(X)

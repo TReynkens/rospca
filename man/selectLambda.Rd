@@ -5,11 +5,11 @@
 Selection of sparsity parameter using IC
 }
 \description{
-Selection of the sparsity parameter for ROSPCA and SCoTLASS using BIC of Hubert et al. (2016) and for SRPCA using BIC of Croux et al. (2013).
+Selection of the sparsity parameter for ROSPCA and SCoTLASS using BIC of Hubert et al. (2016), and for SRPCA using BIC of Croux et al. (2013).
 }
 \usage{
-selectLambda(X, k, kmax = 10, method = "ROSPCAg", lmin = 0, lmax = 2, 
-             lstep = 0.02, alpha = 0.75, stand = TRUE, skew = FALSE, multicore = FALSE, 
+selectLambda(X, k, kmax = 10, method = "ROSPCA", lmin = 0, lmax = 2, lstep = 0.02,
+             alpha = 0.75, stand = TRUE, skew = FALSE, multicore = FALSE, 
              mc.cores = NULL, P = NULL, ndir = "all")
 }
 %- maybe also 'usage' for other objects documented here.
@@ -21,7 +21,7 @@ Number of Principal Components (PCs).
   \item{kmax}{
 Maximal number of PCs to be computed, only used when \code{method = "ROSPCA"} or \code{method = "ROSPCAg"}. Default is 10.}
   \item{method}{
-PCA method to use: ROSPCA (\code{"ROSPCA"} or \code{"ROSPCAg"}), SCoTLASS (\code{"SCoTLASS"} or \code{"SPCAg"}) or SRPCA (\code{"SRPCA"}). Default is \code{"ROSPCAg"}.
+PCA method to use: ROSPCA (\code{"ROSPCA"} or \code{"ROSPCAg"}), SCoTLASS (\code{"SCoTLASS"} or \code{"SPCAg"}) or SRPCA (\code{"SRPCA"}). Default is \code{"ROSPCA"}.
 }
   \item{lmin}{
 Minimal value of \eqn{\lambda} to look at, default is 0.
@@ -81,7 +81,7 @@ Tom Reynkens
 
 
 \seealso{
-\link{selectPlot}, \link[parallel]{mclapply}
+\link{selectPlot}, \link[parallel]{mclapply}, \link{angle}
 }
 \examples{
 X <- dataGen(m=1,n=100,p=10,eps=0.2,bLength=4)$data[[1]]
