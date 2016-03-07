@@ -363,7 +363,7 @@ rospca_part2 = function(X, H0, H1, k, kmax=10, alpha=0.75, h=NULL, grid=TRUE, la
   flag.all=(flag.od*flag.sd)==1 #FALSE if outlier (all 3 types)
   
   return(list(loadings=P, eigenvalues=l, scores=Tn, center=mu, D=D, k=k, H0=H0,
-              H1=H1, P1=P1, index=index, H2=H2, P2=P2, H3=H3, alpha=alpha, h=h, n.obs=n,
+              H1=H1, P1=P1, index=index, H2=H2, P2=P2, H3=H3, alpha=alpha, h=h,
               sd=sd, od=od, cutoff.sd=cutoff.sd, cutoff.od=cutoff.od,
               flag.sd=flag.sd, flag.od=flag.od, flag.all=flag.all))
 }
