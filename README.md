@@ -6,7 +6,7 @@ The rospca package contains the implementation of Robust Sparse PCA using the RO
 
 This package relies heavily on the code from Valentin Todorov for *rrcov* and on the *mrfDepth* package.
 
-The package is not available on CRAN but you can install the latest development version from GitHub using
+The package is not available on CRAN but you can install the package using the binaries for *rospca* and *mrfDepthLight* from <https://wis.kuleuven.be/stat/robust/software#rospca>. The latest development version can be installed from GitHub using
 
     install.packages("devtools")
 
