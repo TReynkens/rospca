@@ -167,9 +167,9 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
   
   ##
   ## ___Step 2___: Either calculate the standard PCA on the MCD covariance matrix (p<<n)
-  ##  or apply the ROBPCA algorithm. If mcd=FALSE, always apply ROBPCA.
+  ##  or apply the ROBPCA algorithm. If mcd=FALSE or skew=TRUE, always apply ROBPCA.
   ##
-  if(ncol(X) <= min(floor(n/5), kmax) & mcd)    # p << n => apply MCD
+  if(ncol(X) <= min(floor(n/5), kmax) & mcd & !skew)    # p << n => apply MCD
   {
     if(trace)
       cat("\nApplying MCD.\n")
