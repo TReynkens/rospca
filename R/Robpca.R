@@ -204,6 +204,9 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
     dimnames(loadings) <- list(colnames(data), paste("PC", seq_len(ncol(loadings)), sep = ""))
     dimnames(scores)[[2]] <- as.list(paste("PC", seq_len(ncol(scores)), sep = ""))
     
+    # Dummy indexset to avoid errors
+    indexset <- H0
+    
   }
   else                                        # p > n or mcd=FALSE => apply the ROBPCA algorithm
   {
