@@ -65,6 +65,7 @@ A list with components:\cr
 \item{Lambda}{Numeric vector containg the used values of \eqn{\lambda}.}
 \item{IC}{Numeric cector containing the IC values corresponding to all values of \eqn{\lambda} in \code{Lambda}.}
 \item{loadings}{Loadings obtained using method with sparsity parameter \code{lambda_opt}, a numeric matrix of size \eqn{p} by \eqn{k}.}
+\item{fit}{Fit obtained using method with sparsity parameter \code{lambda_opt}. This is a list containing the loadings (\code{loadings}), the eigenvalues (\code{eigenvalues}), the standardised data matrix used as input (\code{Xst}), the scores matrix (\code{scores}), the orthogonal distances (\code{od}) and the score distances (\code{sd}).}
 \item{type}{Type of IC used: \code{BICod} (BIC of Hubert et al. (2016)) or \code{BIC} (BIC of Croux et al. (2013)).}
 \item{measure}{A numeric vector containing the standardised angles between the true and the estimated loadings matrix for each value of \eqn{\lambda} if a loadings matrix is given. When no loadings matrix is given as input (\code{P=NULL}), \code{measure} is equal to \code{NULL}.}
 }

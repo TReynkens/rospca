@@ -138,7 +138,7 @@ selectLambda <- function (X, k, kmax = 10, method = "ROSPCA", lmin = 0, lmax = 2
   
   res <- f_pca(X,lambda=lambda_opt)
   
-  lst <- list(opt.lambda=lambda_opt,min.IC=min.ic,Lambda=Lambda,IC=ic,loadings=res$loadings,type=type)
+  lst <- list(opt.lambda=lambda_opt,min.IC=min.ic,Lambda=Lambda,IC=ic,loadings=res$loadings,fit=res,type=type)
   
   if (is.null(P)) {
     lst$measure <- NULL

@@ -5,6 +5,7 @@
   \itemize{
     \item Do not apply ROBPCA with MCD when \code{skew=TRUE}.
     \item Fix error with indexset in ROBPCA with MCD.
+    \item Return fit corresponding to optimal \eqn{\lambda} in \code{selectLambda}.
   }
 }
 
