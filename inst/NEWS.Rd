@@ -6,6 +6,7 @@
     \item Do not apply ROBPCA with MCD when \code{skew=TRUE}.
     \item Fix error with indexset in ROBPCA with MCD.
     \item Return fit corresponding to optimal \eqn{\lambda} in \code{selectLambda}.
+    \item Set needed \pkg{robustbase} version to \emph{0.92-6} to solve problems with \code{k=1} in \code{robpca}.
   }
 }
 

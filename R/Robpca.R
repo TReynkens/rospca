@@ -356,21 +356,9 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
         Xh <- as.matrix(Xh)
 
         #Xh.svd <- classSVD(as.matrix(Xh))
-        # Problems with classPC from robustbase when 1 column,
-        # fix manually
-        if(ncol(Xh)==1) {
-          center <- mean(Xh)
-          nn <- nrow(Xh)
-          x <- scale(Xh, center=TRUE, scale=FALSE)
-          svd <- svd(x/sqrt(nn-1), nu=0)
-          loadings <- as.numeric(svd$v)
-          if(loadings<0) loadings <- -loadings
-          eigenvalues <- (svd$d)^2
-          Xh.svd <- list(loadings=loadings, eigenvalues=eigenvalues, rank=1,
-                         center=as.matrix(attr(x, "scaled:center")), scale=FALSE)
-        } else {
-          Xh.svd <- classPC(as.matrix(Xh))
-        }
+        # Problems with classPC from robustbase when Xh has 1 column are solved in version 0.92-6.
+        Xh.svd <- classPC(as.matrix(Xh))
+        
 
         obj <- prod(Xh.svd$eigenvalues)
         #X2 <- (X2 - repmat(Xh.svd$center, n, 1)) %*% Xh.svd$loadings
