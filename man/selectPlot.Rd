@@ -22,7 +22,9 @@ Logical indicating if the value of \eqn{\lambda} corresponding to the minimal IC
 Title for the plot, default is \code{NULL} (no title).
 }
 }
-
+\references{
+Hubert, M., Reynkens, T., Schmitt, E. and Verdonck, T. (2016). ``Sparse PCA for High-Dimensional Data with Outliers,'' \emph{Technometrics}, 58, 424--434.
+}
 \author{
 Tom Reynkens
 }

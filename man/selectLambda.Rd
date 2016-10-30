@@ -70,7 +70,7 @@ A list with components:\cr
 \item{measure}{A numeric vector containing the standardised angles between the true and the estimated loadings matrix for each value of \eqn{\lambda} if a loadings matrix is given. When no loadings matrix is given as input (\code{P=NULL}), \code{measure} is equal to \code{NULL}.}
 }
 \references{
-Hubert, M., Reynkens, T., Schmitt, E. and Verdonck, T. (2016). ``Sparse PCA for High-Dimensional Data with Outliers,'' \emph{Technometrics}, \emph{accepted}.
+Hubert, M., Reynkens, T., Schmitt, E. and Verdonck, T. (2016). ``Sparse PCA for High-Dimensional Data with Outliers,'' \emph{Technometrics}, 58, 424--434.
 
 Croux, C., Filzmoser, P., and Fritz, H. (2013), ``Robust Sparse Principal Component Analysis,'' \emph{Technometrics}, 55, 202--214.
 
