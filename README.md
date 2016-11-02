@@ -11,3 +11,10 @@ The package is not available on CRAN but you can install the package using the b
     install.packages("devtools")
 
     devtools::install_github("TReynkens/rospca")
+
+If you work on Windows, make sure first that [Rtools](https://cran.r-project.org/bin/windows/Rtools/) is installed.
+
+References
+----------
+
+Hubert, Mia, Tom Reynkens, Eric Schmitt, and Tim Verdonck. 2016. “Sparse PCA for High-Dimensional Data With Outliers.” *Technometrics* 58 (4): 424–34.

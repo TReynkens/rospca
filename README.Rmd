@@ -2,6 +2,25 @@
 output:
   md_document:
     variant: markdown_github
+references:
+- id: rospca
+  title: "Sparse PCA for High-Dimensional Data With Outliers"
+  author:
+  - family: Hubert
+    given: Mia
+  - family: Reynkens
+    given: Tom
+  - family: Schmitt
+    given: Eric
+  - family: Verdonck
+    given: Tim
+  type: article-journal
+  container-title: Technometrics
+  volume: 58
+  issue: 4
+  issued:
+    year: 2016
+  page: 424-434
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -16,7 +35,7 @@ knitr::opts_chunk$set(
 
 # rospca
 
-The rospca package contains the implementation of Robust Sparse PCA using the ROSPCA algorithm of Hubert et al. (2016).
+The rospca package contains the implementation of Robust Sparse PCA using the ROSPCA algorithm of @rospca.
 Moreover, the simulation study and glass dataset discussed in this paper are included.
 
 This package relies heavily on the code from Valentin Todorov for *rrcov* and on the *mrfDepth* package.
@@ -30,3 +49,6 @@ install.packages("devtools")
 
 devtools::install_github("TReynkens/rospca")
 ```
+If you work on Windows, make sure first that [Rtools](https://cran.r-project.org/bin/windows/Rtools/) is installed.
+
+## References
