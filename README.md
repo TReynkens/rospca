@@ -12,7 +12,7 @@ The package is not available on CRAN but you can install the package using the b
 
     devtools::install_github("TReynkens/rospca")
 
-If you work on Windows, make sure first that [Rtools](https://cran.r-project.org/bin/windows/Rtools/) is installed.
+If you work on Windows, make sure first that [Rtools](https://cran.r-project.org/bin/windows/Rtools/) is installed when installing the development version from GitHub.
 
 References
 ----------
