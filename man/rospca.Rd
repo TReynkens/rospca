@@ -57,8 +57,8 @@ A list with components:\cr
   \item{od}{Numeric vector of size \eqn{n} containing the orthogonal distances to the robust PCA subspace.}
   \item{cutoff.sd}{Cut-off value for the robust score distances.}
   \item{cutoff.od}{Cut-off value for the orthogonal distances.}
-\item{flag.sd}{Numeric vector of size \eqn{n} containing the SD-flags of the observations. The observations whose score distance is larger than \code{cutoff.sd} receive an SD-flag equal to zero. The other observations receive an SD-flag equal 1.}  
-  \item{flag.od}{Numeric vector of size \eqn{n} containing the OD-flags of the observations. The observations whose orthogonal distance is larger than \code{cutoff.od} receive an OD-flag equal to zero. The other observations receive an OD-flag equal 1.}
+\item{flag.sd}{Numeric vector of size \eqn{n} containing the SD-flags of the observations. The observations whose score distance is larger than \code{cutoff.sd} receive an SD-flag equal to zero. The other observations receive an SD-flag equal to 1.}  
+  \item{flag.od}{Numeric vector of size \eqn{n} containing the OD-flags of the observations. The observations whose orthogonal distance is larger than \code{cutoff.od} receive an OD-flag equal to zero. The other observations receive an OD-flag equal to 1.}
   \item{flag.all}{Numeric vector of size \eqn{n} containing the flags of the observations. The observations whose score distance is larger than  \code{cutoff.sd} or whose orthogonal distance is 
     larger than  \code{cutoff.od} can be considered as outliers and receive a flag equal to zero. 
     The regular observations receive flag 1.}  
