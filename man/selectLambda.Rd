@@ -56,6 +56,9 @@ True loadings matrix, a numeric matrix of size \eqn{p} by \eqn{k}. The default i
 }
 \details{
 We select an optimal value of \eqn{\lambda} for a certain method on a certain dataset by looking at an equidistant grid of \eqn{\lambda} values. For each value of \eqn{\lambda}, we apply the method on the dataset using this sparsity parameter, and compute an Information Criterion (IC). The optimal value of \eqn{\lambda} is then the one corresponding to the minimal IC. The ICs we consider are the BIC of for Hubert et al. (2016) for ROSPCA and SCoTLASS, and the BIC of Croux et al. (2013) for SRPCA.
+The BIC of Hubert et al. (2016) is defined as
+\deqn{BIC(\lambda)=\ln(1/(h_1p)\sum_{i=1}^{h_1} OD^2_{(i)}(\lambda))+df(\lambda)\ln(h_1p)/(h_1p),}
+where \eqn{h_1} is the size of \eqn{H_1} (the subset of observations that are kept in the non-sparse reweighting step) and \eqn{OD_{(i)}(\lambda)} is the \eqn{i}th smallest orthogonal distance for the model when using \eqn{\lambda} as the sparsity parameter. The degrees of freedom \eqn{df(\lambda)} are the number of non-zero loadings when \eqn{\lambda} is used as the sparsity parameter.
 }
 
 \value{
