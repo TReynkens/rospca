@@ -31,14 +31,15 @@ rospca = function(X, k, kmax=10, alpha=0.75, h=NULL, ndir="all", grid=TRUE, lamb
   # center:         Centre of the data
   # D:              The matrix used to standardise the data before applying sparse PCA (identity matrix if stand=F)
   # k:              Number of (chosen) principal components
+  # H0:             1 for observations that are in the initial h-subset (in robust part)
   # H1:             1 for observations that are kept after non-sparse reweighting step (in robust part)
   # P1:             Loadings matrix before applying sparse reweighting step
   # index:          Indices of variables that are used in second sparse reweighting step
   # H2:             1 for observations that are kept in sparse reweighting step
   # P2:             Loadings matrix before estimating eigenvalues
+  # H3:             1 for observations that are kept in the final SD reweighting step
   # alpha:          The robustness parameter alpha used throughout the algorithm  
   # h:              The h-parameter used throughout the algorithm
-  # n.obs:          Number of observations
   # sd:             Robust score distances within the robust PCA subspace
   # od:             Orthogonal distances to the robust PCA subspace
   # cutoff.sd:      Cutoff value for the robust score distance

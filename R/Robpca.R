@@ -42,9 +42,10 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
   ## scores       -   Scores matrix
   ## center       -   Centre of the data
   ## k            -   Number of (chosen) principal components
-  ## h            -   The quantile h used throughout the algorithm
+  ## H0           -   Indices of the h least outlying points  
+  ## H1           -   1 for observations that are kept after reweighting step
   ## alpha        -   The robustness parameter alpha used throughout the algorithm
-  ## n.obs        -   Number of observations
+  ## h            -   The quantile h used throughout the algorithm
   ## sd           -   Robust score distances within the robust PCA subspace
   ## od           -   Orthogonal distances to the robust PCA subspace
   ## cutoff.od    -   Cutoff value for the robust score distance
@@ -57,8 +58,7 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
   ##                  or whose orthogonal distance is larger than cutoff.od
   ##                  can be considered as outliers and receive a flag equal to zero.
   ##                  The regular observations receive flag 1.
-  ## H0           -   Indices of the h least outlying points  
-  ## H1           -   1 for observations that are kept after reweighting step
+
   # Based on code for ROBPCA in rrcov package (PcaHubert function).
   # Author: Tom Reynkens (tomreynkens@hotmail.com)
   
