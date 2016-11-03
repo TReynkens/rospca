@@ -33,7 +33,19 @@ rospca(X, k, kmax = 10, alpha = 0.75, h = NULL, ndir = "all", grid = TRUE,
 }
 
 \details{
-See Hubert et al. (2016) for more details. In contrast to the paper, we allow for SPCA (Zou et al., 2006) to be used as the sparse PCA method inside ROSPCA (\code{grid=FALSE}). Moreover, we also include a skewed version of ROSPCA (\code{skew=TRUE}) similar to the skewed version of ROBPCA (Hubert et al., 2009) which is not detailed in Hubert et al. (2016).
+The ROSPCA algorithm consists of an outlier detection part (step 1), and a sparsification part (steps 2 and 3).
+We give an overview of these steps here and refer to Hubert et al. (2016) for more details. 
+
+\bold{Step 1}: This is a robustness step similar to ROBPCA. When a standardisation is appropriate, the variables are first robustly standardised by means of the componentwise median and the \eqn{Q_n}. Using the singular value decomposition (SVD) of the resulting data matrix, the \eqn{p}-dimensional data space is reduced to the affine subspace spanned by the \eqn{n} observations. Then, the subset of the \eqn{h} observations with smallest outlyingness is selected (\eqn{H_0}). Thereafter, a reweighting step is applied: given the orthogonal distances to the preliminary PCA subspace determined by the observations in \eqn{H_0}, all observations with orthogonal distances (ODs) smaller than the corresponding cut-off are kept (\eqn{H_1}).
+
+\bold{Step 2}: First, the data points with indices in \eqn{H_1} are standardised using the componentwise median and the \eqn{Q_n} and sparse PCA is applied to them. Then, an additional reweighting step is performed which incorporates information about the sparse structure of the data. Variables with zero loadings on all \eqn{k} PCs are discarded and then the orthogonal distances to the estimated sparse PCA subspace are computed. This yields an index set \eqn{H_2} of observations with orthogonal distance smaller than the cut-off corresponding to these new orthogonal distances. Thereafter, the subset of observations with indices in \eqn{H_2} is standardised using the componentwise median and the \eqn{Q_n} of the observations in \eqn{H_1} (the same standardisation as in the first time sparse PCA is applied) and sparse PCA is applied to them which gives sparse loadings. Adding the discarded zero loadings again gives the loadings matrix \eqn{P_2}.
+
+\bold{Step 3}: In the last step, the eigenvalues are estimated robustly by applying the \eqn{Q_n^2} estimator on the scores of the observations with indices in \eqn{H_2}. In order to robustly estimate the centre, the score distances are computed and all observations of \eqn{H_2} with a score distance smaller than the corresponding cut-off are considered, this is the set \eqn{H_3}. Then, the centre is estimated by the mean of these observations. Finally, the estimates of the eigenvalues are recomputed as the sample variance of the (new) scores of the observations with indices in \eqn{H_3}.
+The eigenvalues are sorted in descending order, so the order of the PCs may change. The columns of the loadings and scores matrices are changed accordingly.
+
+Note that when it is not necessary to standardise the data, they are only centred as in the scheme above, but not scaled.
+
+In contrast to Hubert et al. (2016), we allow for SPCA (Zou et al., 2006) to be used as the sparse PCA method inside ROSPCA (\code{grid=FALSE}). Moreover, we also include a skewed version of ROSPCA (\code{skew=TRUE}) similar to the skewed version of ROBPCA (Hubert et al., 2009) which is not detailed in Hubert et al. (2016).
 }
 
 \value{

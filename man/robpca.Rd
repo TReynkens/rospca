@@ -28,11 +28,17 @@ robpca (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE,
 }
 
 \details{
-When \code{mcd=TRUE} and \eqn{n<5*p}, we do not apply the full ROBPCA algorithm. The loadings and eigenvalues
-are then computed as the eigenvectors and eigenvalues of the MCD estimator applied to data set after the SVD step.
-An extensive description of the ROBPCA algorithm can be found in Hubert et al. (2005).
+This function is based extensively on \code{PcaHubert} from \pkg{rrcov} and there are two main differences: 
 
-This funtion is based extensively on \code{PcaHubert} from \pkg{rrcov}. Notable differences are the use of outlyingness measures from \pkg{mrfDepthLight}, the implementation of the extensions for skewed data and a different output format.
+The outlyingness measure that is used for non-skewed data (\code{skew=FALSE}) is the Stahel-Donoho measure as described in Hubert et al. (2005) which is also used in \code{\link[rrcov]{PcaHubert}}. The implementation in \pkg{mrfDepthLight} (which is used here) is however much faster than the one in \code{\link[rrcov]{PcaHubert}} and hence more, or even all, directions can be considered when computing the outlyingness measure.
+
+Moreover, the extension for skewed data of Hubert et al. (2009) (\code{skew=TRUE}) is also implemented here, but this is not included in \code{\link[rrcov]{PcaHubert}}. 
+
+
+For an extensive description of the ROBPCA algorithm we refer to Hubert et al. (2005) and to \code{\link[rrcov]{PcaHubert}}.
+
+When \code{mcd=TRUE} and \eqn{n<5*p}, we do not apply the full ROBPCA algorithm. The loadings and eigenvalues
+are then computed as the eigenvectors and eigenvalues of the MCD estimator applied to the data set after the SVD step.
 }
 
 \value{
