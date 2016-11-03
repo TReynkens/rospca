@@ -38,9 +38,9 @@ This funtion is based extensively on \code{PcaHubert} from \pkg{rrcov}. Notable 
 \value{
 A list with components:\cr
   \item{loadings}{Loadings matrix containing the robust loadings (eigenvectors), a numeric matrix of size \eqn{p} by \eqn{k}.}
-  \item{eigenvalues}{Numeric vector of length \eqn{k} containg the robust eigenvalues.}
+  \item{eigenvalues}{Numeric vector of length \eqn{k} containing the robust eigenvalues.}
   \item{scores}{Scores matrix (computed as \eqn{(X-center)*loadings)}, a numeric matrix of size \eqn{n} by \eqn{k}.}
-  \item{center}{Numeric vector of length \eqn{k} containg the centre of the data.}
+  \item{center}{Numeric vector of length \eqn{k} containing the centre of the data.}
   \item{k}{Number of (chosen) principal components.}
   \item{H0}{Logical vector of size \eqn{n} indicating if an observation is in the initial h-subset.}
   \item{H1}{Logical vector of size \eqn{n} indicating if an observation is kept in the reweighting step.}
@@ -83,9 +83,9 @@ Tom Reynkens, based on R code from Valentin Todorov for \code{PcaHubert} in \pkg
 
 
 \examples{
-X <- dataGen(m=1,n=100,p=10,eps=0.2,bLength=4)$data[[1]]
+X <- dataGen(m=1, n=100, p=10, eps=0.2, bLength=4)$data[[1]]
 
-resR <- robpca(X,k=2)
+resR <- robpca(X, k=2)
 diagPlot(resR)
 }
 

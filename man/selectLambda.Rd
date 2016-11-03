@@ -62,7 +62,7 @@ We select an optimal value of \eqn{\lambda} for a certain method on a certain da
 A list with components:\cr
 \item{opt.lambda}{Value of \eqn{\lambda} corresponding to minimal IC.}
 \item{min.IC}{Minimal value of IC.}
-\item{Lambda}{Numeric vector containg the used values of \eqn{\lambda}.}
+\item{Lambda}{Numeric vector containing the used values of \eqn{\lambda}.}
 \item{IC}{Numeric cector containing the IC values corresponding to all values of \eqn{\lambda} in \code{Lambda}.}
 \item{loadings}{Loadings obtained using method with sparsity parameter \code{lambda_opt}, a numeric matrix of size \eqn{p} by \eqn{k}.}
 \item{fit}{Fit obtained using method with sparsity parameter \code{lambda_opt}. This is a list containing the loadings (\code{loadings}), the eigenvalues (\code{eigenvalues}), the standardised data matrix used as input (\code{Xst}), the scores matrix (\code{scores}), the orthogonal distances (\code{od}) and the score distances (\code{sd}).}
@@ -85,9 +85,9 @@ Tom Reynkens
 \link{selectPlot}, \link[parallel]{mclapply}, \link{angle}
 }
 \examples{
-X <- dataGen(m=1,n=100,p=10,eps=0.2,bLength=4)$data[[1]]
+X <- dataGen(m=1, n=100, p=10, eps=0.2, bLength=4)$data[[1]]
 
-sl <- selectLambda(X,k=2,method="ROSPCA",lstep=0.1)
+sl <- selectLambda(X, k=2, method="ROSPCA", lstep=0.1)
 selectPlot(sl)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

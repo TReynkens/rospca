@@ -36,9 +36,9 @@ Tom Reynkens, based on R code from Valentin Todorov for the diagnostic plot in \
 }
 
 \examples{
-X <- dataGen(m=1,n=100,p=10,eps=0.2,bLength=4)$data[[1]]
+X <- dataGen(m=1, n=100, p=10, eps=0.2, bLength=4)$data[[1]]
 
-resR <- robpca(X,k=2,skew=FALSE)
+resR <- robpca(X, k=2, skew=FALSE)
 diagPlot(resR)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

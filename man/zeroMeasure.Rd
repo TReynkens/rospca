@@ -25,11 +25,11 @@ We say that all elements with an absolute value smaller than \code{prec} are ``e
 }
 }
 \details{
-The \emph{zero measure} is a way to compare how correctly a PCA method estimates the sparse loadings matrix \code{P}. For each element of an estimated loadings matrix, it is equal to one if the estimated and true value are both zero or both non-zero, and 0 otherwise. We then take the average zero measure over all elements of an estimated loadings matrix and over all estimated loadings matrices which we call the \emph{total zero measure}.
+The \emph{zero measure} is a way to compare how correctly a PCA method estimates the sparse loadings matrix \code{P}. For each element of an estimated loadings matrix, it is equal to one if the estimated and true value are both zero or both non-zero, and zero otherwise. We then take the average zero measure over all elements of an estimated loadings matrix and over all estimated loadings matrices which we call the \emph{total zero measure}.
 }
 \value{
 A list with components:\cr
-  \item{measure}{Numeric matrix of size \eqn{p} by \eqn{k} containg the average zero measure over all \code{length(Plist)} simulations for each element of \code{P}.}
+  \item{measure}{Numeric matrix of size \eqn{p} by \eqn{k} containing the average zero measure over all \code{length(Plist)} simulations for each element of \code{P}.}
   \item{index}{Numeric vector containing the indices of all data sets where the estimate was wrong (at least one of the zero measures for the elements of an estimated loadings matrix is equal to 0).}
   \item{total}{Total zero measure, i.e. the average zero measure over all elements of an estimated loadings matrix and over all estimated loadings matrices.}
 }
@@ -41,10 +41,10 @@ Tom Reynkens
 }
 
 \examples{
-P <- cbind(c(1,1),c(0,1))
-Plist <- list(matrix(1,2,2),P)
+P <- cbind(c(1,1), c(0,1))
+Plist <- list(matrix(1,2,2), P)
 
-zeroMeasure(Plist,P)
+zeroMeasure(Plist, P)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

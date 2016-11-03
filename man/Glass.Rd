@@ -33,8 +33,8 @@ Hubert, M., Rousseeuw, P. J., and Vanden Branden, K. (2005), ``ROBPCA: A New App
 \examples{
 data(Glass)
 
-res <- robpca(Glass,k=4,alpha=0.5)
-matplot(res$loadings,type="l",lty=1)
+res <- robpca(Glass, k=4, alpha=0.5)
+matplot(res$loadings, type="l", lty=1)
 }
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the

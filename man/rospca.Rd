@@ -92,9 +92,9 @@ Tom Reynkens, based on R code from Valentin Todorov for \code{PcaHubert} in \pkg
 }
 
 \examples{
-X <- dataGen(m=1,n=100,p=10,eps=0.2,bLength=4)$data[[1]]
+X <- dataGen(m=1, n=100, p=10, eps=0.2, bLength=4)$data[[1]]
 
-resRS <- rospca(X,k=2,lambda=0.4,stand=TRUE)
+resRS <- rospca(X, k=2, lambda=0.4, stand=TRUE)
 diagPlot(resRS)
 }
 

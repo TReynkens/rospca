@@ -37,10 +37,10 @@ Tom Reynkens
 \examples{
 tmp <- dataGen(m=1)
 
-P <-  eigen(tmp$R)$vectors[,1:2]
-PP <-  rospca(tmp$data[[1]],k=2)$loadings
+P <- eigen(tmp$R)$vectors[,1:2]
+PP <- rospca(tmp$data[[1]], k=2)$loadings
 
-angle(P,PP)
+angle(P, PP)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

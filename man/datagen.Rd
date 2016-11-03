@@ -22,7 +22,7 @@ dataGen(m = 100, n = 100, p = 10, a = c(0.9,0.5,0), bLength = 4, SD = c(10,5,2),
 \item{a}{Numeric vector containing the inner group correlations for each block. The number of useful blocks is thus given by \eqn{k=length(a)-1} which should be at least 2. By default, the correlations are equal to 0.9, 0.5 and 0, respectively.}
 \item{bLength}{Length of the blocks of useful variables, default is 4.}
 \item{SD}{Numeric vector containing the standard deviations of the blocks of variables, default is \code{c(10,4,2)}. Note that \code{SD} and \code{a} should have the same length.}
-\item{eps}{Fraction of contamination, should be between 0 and 0.5. Default is 0 (no contamination).}
+\item{eps}{Proportion of contamination, should be between 0 and 0.5. Default is 0 (no contamination).}
 \item{seed}{Logical indicating if a seed is used when generating the datasets, default is \code{TRUE}.}
 }
 
@@ -56,9 +56,9 @@ Tom Reynkens
 
 
 \examples{
-X <- dataGen(m=1,n=100,p=10,eps=0.2,bLength=4)$data[[1]]
+X <- dataGen(m=1, n=100, p=10, eps=0.2, bLength=4)$data[[1]]
 
-resR <- robpca(X,k=2,skew=FALSE)
+resR <- robpca(X, k=2, skew=FALSE)
 diagPlot(resR)
 }
 
