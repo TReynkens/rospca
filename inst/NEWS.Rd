@@ -10,6 +10,7 @@
     \item Update Hubert et al. (2016) reference.
     \item Improve documentation.
     \item Change version numbering format.
+    \item Use \pkg{mrfDepth} instead of \pkg{mrfDepthLight}.
   }
 }
 

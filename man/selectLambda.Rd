@@ -50,7 +50,7 @@ Number of cores to use if \code{multicore=TRUE}, default is \code{NULL} which co
   \item{P}{
 True loadings matrix, a numeric matrix of size \eqn{p} by \eqn{k}. The default is \code{NULL} which means that no true loadings matrix is specified. 
 }
-\item{ndir}{Number of directions used when computing the outlyingness (or the adjusted outlyingness when \code{skew=TRUE}) in \code{rospca}, see \code{\link[mrfDepthLight]{outlyingness}} and \code{\link[mrfDepthLight]{adjOutlyingness}} for more details.
+\item{ndir}{Number of directions used when computing the outlyingness (or the adjusted outlyingness when \code{skew=TRUE}) in \code{rospca}, see \code{\link[mrfDepth]{outlyingness}} and \code{\link[mrfDepth]{adjOutlyingness}} for more details.
 }
 
 }
