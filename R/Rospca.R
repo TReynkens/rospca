@@ -351,6 +351,7 @@ rospca_part2 = function(X, H0, H1, k, kmax=10, alpha=0.75, h=NULL, grid=TRUE, la
   s=paste("PC",1:k,sep="")
   names(l)=s
   colnames(P)=s 
+  rownames(P)=colnames(X)
   colnames(Tn)=s 
   
   #Compute distances and cutoffs

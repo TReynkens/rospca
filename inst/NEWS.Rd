@@ -1,6 +1,13 @@
 \name{NEWS}
 \title{News for package rospca}
 
+
+\section{Changes in rospca version 0.5.0 (20xx-yy-zz)}{
+  \itemize{
+    \item Add variable names as row names for loadings matrix.
+  }
+}
+
 \section{Changes in rospca version 0.4.0 (2016-12-01)}{
   \itemize{
     \item Do not apply ROBPCA with MCD when \code{skew=TRUE}.
