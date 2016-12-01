@@ -52,7 +52,7 @@ In contrast to Hubert et al. (2016), we allow for SPCA (Zou et al., 2006) to be 
 A list with components:\cr
 \item{loadings}{Loadings matrix containing the sparse robust loadings (eigenvectors), a numeric matrix of size \eqn{p} by \eqn{k}.}
   \item{eigenvalues}{Numeric vector of length \eqn{k} containing the robust eigenvalues.}
-  \item{scores}{Scores matrix (computed as \eqn{(X-center)*loadings)}, a numeric matrix of size \eqn{n} by \eqn{k}.}
+  \item{scores}{Scores matrix (computed as \eqn{(X-center) \cdot loadings)}, a numeric matrix of size \eqn{n} by \eqn{k}.}
   \item{center}{Numeric vector of length \eqn{k} containing the centre of the data.}
   \item{D}{Matrix used to standardise the data before applying sparse PCA (identity matrix if \code{stand=FALSE}), a numeric matrix of size \eqn{p} by \eqn{p}.}
   \item{k}{Number of (chosen) principal components.}

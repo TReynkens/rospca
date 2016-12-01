@@ -37,7 +37,7 @@ Moreover, the extension for skewed data of Hubert et al. (2009) (\code{skew=TRUE
 
 For an extensive description of the ROBPCA algorithm we refer to Hubert et al. (2005) and to \code{\link[rrcov]{PcaHubert}}.
 
-When \code{mcd=TRUE} and \eqn{n<5*p}, we do not apply the full ROBPCA algorithm. The loadings and eigenvalues
+When \code{mcd=TRUE} and \eqn{n<5 \times p}, we do not apply the full ROBPCA algorithm. The loadings and eigenvalues
 are then computed as the eigenvectors and eigenvalues of the MCD estimator applied to the data set after the SVD step.
 }
 
@@ -45,7 +45,7 @@ are then computed as the eigenvectors and eigenvalues of the MCD estimator appli
 A list with components:\cr
   \item{loadings}{Loadings matrix containing the robust loadings (eigenvectors), a numeric matrix of size \eqn{p} by \eqn{k}.}
   \item{eigenvalues}{Numeric vector of length \eqn{k} containing the robust eigenvalues.}
-  \item{scores}{Scores matrix (computed as \eqn{(X-center)*loadings)}, a numeric matrix of size \eqn{n} by \eqn{k}.}
+  \item{scores}{Scores matrix (computed as \eqn{(X-center) \cdot loadings)}, a numeric matrix of size \eqn{n} by \eqn{k}.}
   \item{center}{Numeric vector of length \eqn{k} containing the centre of the data.}
   \item{k}{Number of (chosen) principal components.}
   \item{H0}{Logical vector of size \eqn{n} indicating if an observation is in the initial h-subset.}
