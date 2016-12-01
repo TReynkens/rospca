@@ -1,7 +1,7 @@
 \name{NEWS}
 \title{News for package rospca}
 
-\section{Changes in rospca version 0.4.0 (20zz-yy-xx)}{
+\section{Changes in rospca version 0.4.0 (2016-12-01)}{
   \itemize{
     \item Do not apply ROBPCA with MCD when \code{skew=TRUE}.
     \item Fix error with indexset in ROBPCA with MCD.
