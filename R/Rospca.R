@@ -351,8 +351,15 @@ rospca_part2 = function(X, H0, H1, k, kmax=10, alpha=0.75, h=NULL, grid=TRUE, la
   s=paste("PC",1:k,sep="")
   names(l)=s
   colnames(P)=s 
-  rownames(P)=colnames(X)
   colnames(Tn)=s 
+  #Change names of rows
+  rownames(P)=colnames(X)
+  if(!is.null(rownames(X))) {
+    rownames(Tn)= rownames(X)
+  } else {
+    rownames(Tn)= 1:n
+  }
+
   
   #Compute distances and cutoffs
   A=distPCA(X=X,Tn=Tn,P=P,l=l,mu=mu,h=h,skew=skew)

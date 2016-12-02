@@ -5,6 +5,7 @@
 \section{Changes in rospca version 0.5.0 (20xx-yy-zz)}{
   \itemize{
     \item Add variable names as row names for loadings matrix.
+    \item Add row names for scores matrix.
   }
 }
 
