@@ -445,6 +445,9 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
     cutoff.sd <- A$cutoff.sd
   }
   od <- A$od
+  if (skew) {
+    names(sd) <- names(od)
+  }
   cutoff.od <- A$cutoff.od
   flag.sd <- (sd<=cutoff.sd) #FALSE if outlying in PCA subspace
   flag.od <- (od<=cutoff.od) #FALSE if outlying for OD

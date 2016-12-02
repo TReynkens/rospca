@@ -201,6 +201,7 @@ distPCA <- function (X, Tn, P, l, mu = rep(0,ncol(as.matrix(X))), h = NULL, skew
   
   #Orthogonal distance
   od <- apply(sweep(X,2,mu,"-")-Tn%*%t(P),1,vecnorm)
+  names(od) <- names(sd)
   
   #Cutoff
    if(co.od) {
