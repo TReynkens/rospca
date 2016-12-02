@@ -360,7 +360,10 @@ rospca_part2 = function(X, H0, H1, k, kmax=10, alpha=0.75, h=NULL, grid=TRUE, la
   } else {
     rownames(Tn)= 1:n
   }
-
+  names(H0) <- rownames(Tn)
+  names(H1) <- rownames(Tn)
+  names(H2) <- rownames(Tn)
+  names(H3) <- rownames(Tn)
   
   #Compute distances and cutoffs
   A=distPCA(X=X,Tn=Tn,P=P,l=l,mu=mu,h=h,skew=skew)

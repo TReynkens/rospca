@@ -434,7 +434,9 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
   dimnames(scores)[[2]] <- as.list(paste("PC", seq_len(ncol(scores)), sep = ""))
   names(eigenvalues) <- colnames(loadings)
   names(center) <- colnames(loadings) 
-  
+  names(H0) <- rownames(scores)
+  names(indexset) <- rownames(scores)
+
   #Compute distances and cutoffs
   A <- distPCA(X=data, Tn=scores, P=loadings, l=eigenvalues, mu=center, h=h, skew=skew)
   if (skew) {
