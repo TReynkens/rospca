@@ -7,6 +7,7 @@
     \item Add variable names as row names for loadings matrix.
     \item Add row names for scores matrix.
     \item Add names for \code{od} and \code{sd}.
+    \item Add names for eigenvalues and center.
   }
 }
 

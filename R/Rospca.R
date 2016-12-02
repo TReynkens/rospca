@@ -349,6 +349,7 @@ rospca_part2 = function(X, H0, H1, k, kmax=10, alpha=0.75, h=NULL, grid=TRUE, la
   
   #Change names of columns
   s=paste("PC",1:k,sep="")
+  names(mu)=s
   names(l)=s
   colnames(P)=s 
   colnames(Tn)=s 
