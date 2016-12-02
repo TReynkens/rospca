@@ -9,6 +9,7 @@
     \item Add names for \code{od} and \code{sd}.
     \item Add names for eigenvalues and center.
     \item Add names for \code{H0}, \code{H1}, \code{H2} and \code{H3}.
+    \item Add names for \code{D}.
   }
 }
 

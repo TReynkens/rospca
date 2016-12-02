@@ -433,7 +433,7 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
   dimnames(loadings) <- list(colnames(data), paste("PC", seq_len(ncol(loadings)), sep = ""))
   dimnames(scores)[[2]] <- as.list(paste("PC", seq_len(ncol(scores)), sep = ""))
   names(eigenvalues) <- colnames(loadings)
-  names(center) <- colnames(loadings) 
+  names(center) <- rownames(loadings) 
   names(H0) <- rownames(scores)
   names(indexset) <- rownames(scores)
 
