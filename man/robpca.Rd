@@ -74,7 +74,7 @@ Hubert, M., Rousseeuw, P. J., and Verdonck, T. (2009), ``Robust PCA for Skewed D
 }
 
 \author{
-Tom Reynkens, based on R code from Valentin Todorov for \code{PcaHubert} in \pkg{rrcov} (released under GPL-3).
+Tom Reynkens, based on R code from Valentin Todorov for \code{PcaHubert} in \pkg{rrcov} (released under GPL-3) and Matlab code from Katrien Van Driessen (for the univariate MCD).
 }
 
 %% \note{
