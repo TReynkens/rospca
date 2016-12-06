@@ -59,13 +59,14 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
   ##                  can be considered as outliers and receive a flag equal to zero.
   ##                  The regular observations receive flag 1.
 
-  # Based on code for ROBPCA in rrcov package (PcaHubert function).
+  # Based on code for ROBPCA in 'rrcov' package ('PcaHubert' function) by Valentin Todorov.
   # Author: Tom Reynkens (tomreynkens@hotmail.com)
   
-  #The number of subsets used in covMCD (MCD version) is set to 1000.
-  #Or use all directions in outlyingness (using mrfDepth) when no mcd is applied.
-  #We also changed the computation of distances and flags and allow for an input element h.
-  #Using the skew option, one can also use the skewed version of ROBPCA.
+  # The number of subsets used in covMCD (MCD version) is set to 1000.
+  # When not using the MCD version, the outlyingness measure is now computed using the 
+  # 'outlyingness' function of the 'mrfDepth' package.
+  # We also changed the computation of distances and flags and allow for an input element h.
+  # Using the skew option, one can also use the skewed version of ROBPCA.
   
   
   scale <- FALSE; signflip <- TRUE; trace <- FALSE

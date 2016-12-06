@@ -217,7 +217,7 @@ distPCA <- function (X, Tn, P, l, mu = rep(0,ncol(as.matrix(X))), h = NULL, skew
 #################################################################################
 
 #Label outliers on diagnostic plot
-#Code by Valentin Todorov for rrcov package
+#Code by Valentin Todorov for 'rrcov' package
 labelDD <- function (x, y, id.n.sd = 3, id.n.od = 3, off = 0.02) {
   xrange <- par("usr")
   xrange <- xrange[2] - xrange[1]
@@ -242,6 +242,7 @@ labelDD <- function (x, y, id.n.sd = 3, id.n.od = 3, off = 0.02) {
 
 #Make a diagnostic plot.
 #If label_out=TRUE, the outliers will be labelled on the plot.
+#Based on code by Valentin Todorov for 'rrcov' package
 diagPlot <- function (res,title="Robust PCA",col="black",pch=16,labelOut=TRUE,id=3){
   
   sd <- res$sd

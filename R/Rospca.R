@@ -53,9 +53,14 @@ rospca = function(X, k, kmax=10, alpha=0.75, h=NULL, ndir="all", grid=TRUE, lamb
   #                  can be considered as outliers and receive a flag equal to zero.
   #                  The regular observations receive flag 1.
   #
-  # Based on code for ROBPCA in rrcov package (PcaHubert function).
+  # Based on code for ROBPCA in 'rrcov' package ('PcaHubert' function) by Valentin Todorov.
   # Author: Tom Reynkens (tomreynkens@hotmail.com)
   
+  # The code for ROBPCA from the 'rrcov' package ('PcaHubert' function) up to the reweighting step forms 
+  # the basis of the function 'rospca_part1'.
+  # The MCD version is removed and the outlyingness measure is now computed using the 
+  # 'outlyingness' function of the 'mrfDepth' package.
+
   #Determine H1 using step 1 and part of step 2 of ROBPCA 
   temp=rospca_part1(X,k=k,alpha=alpha,h=h,stand=stand,ndir=ndir,kmax=kmax,skew=skew)
   
