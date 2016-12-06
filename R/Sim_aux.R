@@ -1,8 +1,3 @@
-# Simulations similar to Todorov and Filzmoser (2012).
-require("compiler")
-enableJIT(1) #just-in-time (JIT) compilation
-
-#A lot of the functions in this file are compiled (to byte code) to increase speed.
 
 ###############################################
 #General function for simulations             #

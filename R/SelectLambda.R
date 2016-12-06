@@ -1,10 +1,4 @@
 
-if(Sys.info()[['sysname']]!="Windows"){
-  library("parallel")}
-require("compiler")
-enableJIT(1)
-
-
 #########################################################
 #Selection of lambda using AIC or BIC 
 #########################################################
