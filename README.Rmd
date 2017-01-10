@@ -34,6 +34,7 @@ knitr::opts_chunk$set(
 ```
 
 # rospca
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/rospca)](https://cran.r-project.org/package=rospca)
 
 The rospca package contains the implementation of robust sparse PCA using the ROSPCA algorithm of @rospca.
 Moreover, the simulation study and glass dataset discussed in this paper are included.

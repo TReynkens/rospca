@@ -2,6 +2,8 @@
 rospca
 ======
 
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/rospca)](https://cran.r-project.org/package=rospca)
+
 The rospca package contains the implementation of robust sparse PCA using the ROSPCA algorithm of Hubert et al. (2016). Moreover, the simulation study and glass dataset discussed in this paper are included.
 
 This package relies heavily on the code from Valentin Todorov for *rrcov* and on the *mrfDepth* package.
