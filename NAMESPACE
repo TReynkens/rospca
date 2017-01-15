@@ -11,8 +11,6 @@ import("rrcovHD")
 importFrom("elasticnet", "spca")
 importFrom("mvtnorm", "rmvnorm")
 importFrom("pracma", "orth") 
-# Avoid problems on R-Hub
-importFrom("lattice", "dotplot") 
 
 export("rospca")
 export("robpca")

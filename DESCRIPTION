@@ -15,7 +15,6 @@ Depends: R (>= 2.13.0)
 Imports: stats, 
          graphics, 
          parallel,
-         lattice,
          mrfDepth, 
          robustbase (>= 0.92-6), 
          pcaPP, 
