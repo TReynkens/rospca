@@ -66,7 +66,7 @@ rospca = function(X, k, kmax=10, alpha=0.75, h=NULL, ndir="all", grid=TRUE, lamb
   
   #Sparse steps with reweighting
   return(rospca_part2(X,H0=temp$H0,H1=temp$H1,k=temp$k,kmax=kmax,alpha=temp$alpha,h=temp$h,grid=grid,lambda=lambda,
-                      stand=stand,sparse=sparse,para=para,skew=skew))
+                      stand=stand,sparse=sparse,para=para,skew=skew,ndir=ndir))
 }
 
 rospca_part1 = function(x, k=0, kmax=10, alpha=0.75, h=NULL, stand=TRUE, ndir='all', skew=FALSE){ 
@@ -245,7 +245,7 @@ rospca_part1 = function(x, k=0, kmax=10, alpha=0.75, h=NULL, stand=TRUE, ndir='a
 }
 
 
-rospca_part2 = function(X, H0, H1, k, kmax=10, alpha=0.75, h=NULL, grid=TRUE, lambda=10^(-6), stand=TRUE, sparse="penalty", para, skew=FALSE){
+rospca_part2 = function(X, H0, H1, k, kmax=10, alpha=0.75, h=NULL, grid=TRUE, lambda=10^(-6), stand=TRUE, sparse="penalty", para, skew=FALSE, ndir='all'){
   
   d=dim(X); n=d[1]; p=d[2]
   X=as.matrix(X) #Make matrix out of data matrix
@@ -327,13 +327,29 @@ rospca_part2 = function(X, H0, H1, k, kmax=10, alpha=0.75, h=NULL, grid=TRUE, la
   ##
   #SD reweighting
   
-  # Compute score distances of observations in H2
-  A=distPCA(X=X[H2,],Tn=TT[H2,],P=P2,l=l1,mu=mu,h=sum(H2),skew=skew,co.od=FALSE)
+
   
-  # Set H3 of all observations in H2 with sd <= cutoff
-  H3 <- rep(FALSE,n)
-  H3[H2] <- (A$sd<A$cutoff.sd)
-  H3 <- as.logical(H3)
+  if (skew) {
+    
+    # Score distances using adjusted outlyingness
+    outl2 <- adjOutlyingness(TT, options = list(type="Rotation", ndir=ndir))$outlyingnessX
+    
+    # Set H3 of all observations in H2 with sd <= cutoff
+    H3 <- rep(FALSE,n)
+    H3[H2] <- (outl2[H2] < coOD(outl2[H2],skew=TRUE)$co.od)
+    H3 <- as.logical(H3)
+    
+  } else {
+    
+    # Compute score distances of observations in H2
+    A <- distPCA(X=X[H2,],Tn=TT[H2,],P=P2,l=l1,mu=mu,h=sum(H2),skew=FALSE,co.od=FALSE)
+    
+    # Set H3 of all observations in H2 with sd <= cutoff
+    H3 <- rep(FALSE,n)
+    H3[H2] <- (A$sd<A$cutoff.sd)
+    H3 <- as.logical(H3)
+  }
+
   
   # New centre
   mu <- colMeans(X[H3,])
@@ -380,6 +396,15 @@ rospca_part2 = function(X, H0, H1, k, kmax=10, alpha=0.75, h=NULL, grid=TRUE, la
   od=A$od
   cutoff.sd=A$cutoff.sd
   cutoff.od=A$cutoff.od
+  
+  # Adjust score distances for skewed data
+  if (skew) {
+    
+    # score distances using adjusted outlyingness
+    sd <- outl2
+    
+    cutoff.sd <- coOD(sd,skew=TRUE)$co.od
+  }
   flag.sd=(sd<=cutoff.sd) #FALSE if outlying in PCA subspace
   flag.od=(od<=cutoff.od) #FALSE if outlying for OD
   flag.all=(flag.od*flag.sd)==1 #FALSE if outlier (all 3 types)
