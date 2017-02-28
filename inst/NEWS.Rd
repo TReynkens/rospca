@@ -2,7 +2,7 @@
 \title{News for package rospca}
 
 
-\section{Changes in version 1.0.1 (2017-yy-xx)}{
+\section{Changes in version 1.0.1 (2017-02-28)}{
 
  \itemize{
     \item Change computation of score distances in skew-adjusted version of ROSPCA.

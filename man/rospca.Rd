@@ -45,7 +45,7 @@ The eigenvalues are sorted in descending order, so the order of the PCs may chan
 
 Note that when it is not necessary to standardise the data, they are only centred as in the scheme above, but not scaled.
 
-In contrast to Hubert et al. (2016), we allow for SPCA (Zou et al., 2006) to be used as the sparse PCA method inside ROSPCA (\code{grid=FALSE}). Moreover, we also include a skewed version of ROSPCA (\code{skew=TRUE}) similar to the skewed version of ROBPCA (Hubert et al., 2009) which is not detailed in Hubert et al. (2016).
+In contrast to Hubert et al. (2016), we allow for SPCA (Zou et al., 2006) to be used as the sparse PCA method inside ROSPCA (\code{grid=FALSE}). Moreover, we also include a skew-adjusted version of ROSPCA (\code{skew=TRUE}) similar to the skew-adjusted version of ROBPCA (Hubert et al., 2009). This adjusted version is not detailed in Hubert et al. (2016).
 }
 
 \value{
