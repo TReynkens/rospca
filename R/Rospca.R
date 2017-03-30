@@ -169,7 +169,7 @@ rospca_part1 = function(x, k=0, kmax=10, alpha=0.75, h=NULL, stand=TRUE, ndir='a
   
   if (skew) {
     # Adjusted outlyingness from mrfDepth package, fast enough to compute all directions
-    outl_obj <- adjOutlyingness(T1, options = list(type="Rotation", ndir=ndir))
+    outl_obj <- adjOutl(T1, options = list(type="Rotation", ndir=ndir))
   } else {
     # Outlyingness from mrfDepth package, fast enough to compute all directions
     outl_obj <- outlyingness(T1, options = list(type="Rotation", h=h, ndir=ndir, stand="unimcd"))
@@ -332,7 +332,7 @@ rospca_part2 = function(X, H0, H1, k, kmax=10, alpha=0.75, h=NULL, grid=TRUE, la
   if (skew) {
     
     # Score distances using adjusted outlyingness
-    outl2 <- adjOutlyingness(TT, options = list(type="Rotation", ndir=ndir))$outlyingnessX
+    outl2 <- adjOutl(TT, options = list(type="Rotation", ndir=ndir))$outlyingnessX
     
     # Set H3 of all observations in H2 with sd <= cutoff
     H3 <- rep(FALSE,n)

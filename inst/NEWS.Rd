@@ -2,6 +2,15 @@
 \title{News for package rospca}
 
 
+\section{Changes in version 1.0.2 (2017-yy-xx)}{
+
+ \itemize{
+    \item \code{adjOutlyingness} is renamed to \code{adjOutl} in \pkg{mrfDepth} version 1.0.3.
+    The calls to this function are changed accordingly, and hence \pkg{mrfDepth} version 1.0.3 or higher is now required.
+ }
+}
+
+
 \section{Changes in version 1.0.1 (2017-02-28)}{
 
  \itemize{

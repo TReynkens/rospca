@@ -22,7 +22,7 @@ robpca (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE,
 \item{alpha}{Robustness parameter, default is 0.75.}
 \item{h}{The number of outliers the algorithm should resist is given by \eqn{n-h}. Any value for \code{h} between \eqn{n/2} and \eqn{n} may be specified. Default is \code{NULL} which uses \code{h=ceiling(alpha*n)+1}. Do not specify \code{alpha} and \code{h} at the same time. }
 \item{mcd}{Logical indicating if the MCD adaptation of ROBPCA may be applied when the number of variables is sufficiently small (see Details). If \code{mcd=FALSE} (default), the full ROBPCA algorithm is always applied.}
-\item{ndir}{Number of directions used when computing the outlyingness (or the adjusted outlyingness when \code{skew=TRUE}), see \code{\link[mrfDepth]{outlyingness}} and \code{\link[mrfDepth]{adjOutlyingness}} for more details.}
+\item{ndir}{Number of directions used when computing the outlyingness (or the adjusted outlyingness when \code{skew=TRUE}), see \code{\link[mrfDepth]{outlyingness}} and \code{\link[mrfDepth]{adjOutl}} for more details.}
 \item{skew}{Logical indicating if the version for skewed data (Hubert et al., 2009) is applied, default is \code{FALSE}.}
 \item{...}{Other arguments to pass to methods.}
 }
@@ -84,7 +84,7 @@ Tom Reynkens, based on R code from Valentin Todorov for \code{PcaHubert} in \pkg
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-\code{\link[rrcov]{PcaHubert}}, \code{\link[mrfDepth]{outlyingness}}, \code{\link[mrfDepth]{adjOutlyingness}}
+\code{\link[rrcov]{PcaHubert}}, \code{\link[mrfDepth]{outlyingness}}, \code{\link[mrfDepth]{adjOutl}}
 }
 
 

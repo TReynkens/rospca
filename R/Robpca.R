@@ -225,7 +225,7 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
     
     if (skew) {
       # Adjusted outlyingness from mrfDepth package, fast enough to compute all directions
-      outl_obj <- adjOutlyingness(X, options = list(type="Rotation", ndir=ndir))
+      outl_obj <- adjOutl(X, options = list(type="Rotation", ndir=ndir))
 
     } else {
       # Outlyingness from mrfDepth package, fast enough to compute all directions
@@ -322,7 +322,7 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
     if (skew) {
       
       #Adjusted outlyingness in k-dimensional subspace
-      outl2 <- adjOutlyingness(X2, options = list(type="Rotation", ndir=ndir))$outlyingnessX
+      outl2 <- adjOutl(X2, options = list(type="Rotation", ndir=ndir))$outlyingnessX
       H2 <- order(outl2)  #Order indices by outlyingness    
       Xh2 <- X2[H2[1:h], ] # the h data points with smallest outlyingness
       ee <- eigen(cov(Xh2))
