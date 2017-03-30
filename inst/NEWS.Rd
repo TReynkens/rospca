@@ -8,6 +8,7 @@
     \item \code{adjOutlyingness} is renamed to \code{adjOutl} in \pkg{mrfDepth} version 1.0.3.
     The calls to this function are changed accordingly, and hence \pkg{mrfDepth} version 1.0.3 or higher is now required.
     \item Re-format R code.
+    \item Fix bug in \code{robpca} when \code{k=1} and \code{skew=TRUE}.
  }
 }
 

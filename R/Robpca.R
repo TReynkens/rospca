@@ -324,7 +324,7 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
       # Adjusted outlyingness in k-dimensional subspace
       outl2 <- adjOutl(X2, options = list(type="Rotation", ndir=ndir))$outlyingnessX
       H2 <- order(outl2)  # Order indices by outlyingness    
-      Xh2 <- X2[H2[1:h], ] # the h data points with smallest outlyingness
+      Xh2 <- as.matrix(X2[H2[1:h], ]) # the h data points with smallest outlyingness
       ee <- eigen(cov(Xh2))
       P6 <- ee$vectors
       X2center <- colMeans(Xh2)
