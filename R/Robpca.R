@@ -73,7 +73,7 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
   
   cl <- match.call()
   
-  if(missing(x))
+  if (missing(x))
     stop("You have to provide at least some data")
   
   data <- as.matrix(x)
@@ -87,13 +87,13 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
   #Xsvd <- classPC(data, scale=scale, signflip=signflip)
   Xsvd <- classPC(data, scale=scale, signflip=signflip)
   
-  if(Xsvd$rank == 0)
+  if (Xsvd$rank == 0)
     stop("All data points collapse!")
 
   ## VT::27.08.2010: introduce 'scale' parameter; return the scale in the value object
   ##
-  myscale  <-  vector('numeric', p) + 1
-  if(scale)
+  myscale <- vector('numeric', p) + 1
+  if (scale)
     myscale <- Xsvd$scale
   
   ##
@@ -103,26 +103,26 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
 
   ## VT::06.11.2012 - kmax <= floor(n/2) is too restrictive
   ##    kmax <- max(min(floor(kmax), floor(n/2), Xsvd$rank),1)
-  kmax <- max(min(floor(kmax), Xsvd$rank),1)
+  kmax <- max(min(floor(kmax), Xsvd$rank), 1)
   
   
-  if((k <- floor(k)) < 0)
+  if ((k <- floor(k)) < 0)
     k <- 0
-  else if(k > kmax) {
+  else if (k > kmax) {
     warning(paste("The number of principal components k = ", k, " is larger then kmax = ", kmax, "; k is set to ", kmax,".", sep=""))
     k <- kmax
   }
   
-  if(missing(alpha))
+  if (missing(alpha))
   {
     default.alpha <- alpha
-    if(is.null(h)){
+    if (is.null(h)) {
       h <- min(h.alpha.n(alpha, n, kmax), n)
     }
 
     alpha <- h/n
-    if(k == 0) {
-      if(h < floor((n+kmax+1)/2)) {
+    if (k == 0) {
+      if (h < floor((n+kmax+1)/2)) {
         h <- floor((n+kmax+1)/2)
         alpha <- h/n
         warning(paste("h should be larger than (n+kmax+1)/2. It is set to its minimum value ", h, ".", sep=""))
@@ -130,34 +130,34 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
     }
     else {
       
-      if(h < floor((n+k+1)/2)) {
+      if (h < floor((n+k+1)/2)) {
         h <- floor((n+k+1)/2)
         alpha <- h/n
         warning(paste("h should be larger than (n+k+1)/2. It is set to its minimum value ", h, ".", sep=""))
       }
     }
-    if(h > n) {
+    if (h > n) {
       
       alpha <- default.alpha
-      if(k == 0)
+      if (k == 0)
         h <- h.alpha.n(alpha, n, kmax)
       else
         h <- h.alpha.n(alpha, n, k)
       warning(paste("h should be smaller than n = ", n, ". It is set to its default value ", h, ".", sep=""))
     }
-  }else
+  } else
   {
     
-    if(alpha < 0.5 | alpha > 1)
+    if (alpha < 0.5 | alpha > 1)
       stop("Alpha is out of range: should be between 1/2 and 1")
 
-    hdef=h
-    if(k == 0)
+    hdef <- h
+    if (k == 0)
       h <- h.alpha.n(alpha, n, kmax)
     else
       h <- h.alpha.n(alpha, n, k)
     
-    if(!is.null(hdef))
+    if (!is.null(hdef))
       warning(paste("Both alpha and h are given, h is set to its default value ",h,".",sep=""))
   }
   
@@ -173,22 +173,22 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
   if (mcd & skew) {
     warning("The skew-adjusted version of ROBPCA cannot be applied with the MCD adaptation, \"mcd\" is set to FALSE.")
   }
-  if(ncol(X) <= min(floor(n/5), kmax) & mcd & !skew)    # p << n => apply MCD
+  if (ncol(X) <= min(floor(n/5), kmax) & mcd & !skew)    # p << n => apply MCD
   {
-    if(trace)
+    if (trace)
       cat("\nApplying MCD.\n")
     
     ## If k was not specified, set it equal to the number of columns in X
     ##
-    if(k != 0)
+    if (k != 0)
       k <- min(k, ncol(X))
     else {
       k <- ncol(X)
-      if(trace)
+      if (trace)
         cat("The number of principal components is defined by the algorithm. It is set to ", k,".\n", sep="")
     }
     
-    X.mcd <- CovMcd(as.data.frame(X),alpha=alpha,nsamp=1000,seed=set.seed(251120134))
+    X.mcd <- CovMcd(as.data.frame(X), alpha=alpha, nsamp=1000, seed=set.seed(251120134))
     X.mcd.svd <- svd(getCov(X.mcd))
     #scores <- (X - repmat(getCenter(X.mcd), nrow(X), 1)) %*% X.mcd.svd$u
     scores <- (X - matrix(rep(getCenter(X.mcd), times=nrow(X)), nrow=nrow(X), byrow=TRUE)) %*% X.mcd.svd$u
@@ -199,7 +199,7 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
     eigenvalues <- X.mcd.svd$d[1:k]
     loadings <- Xsvd$loadings %*% X.mcd.svd$u[,1:k]
     scores <- as.matrix(scores[,1:k])
-    if(is.list(dimnames(data)) && !is.null(dimnames(data)[[1]]))
+    if (is.list(dimnames(data)) && !is.null(dimnames(data)[[1]]))
     {
       dimnames(scores)[[1]] <- dimnames(data)[[1]]
     } else {
@@ -214,7 +214,7 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
   }
   else                                        # p > n or mcd=FALSE => apply the ROBPCA algorithm
   {
-    if(trace)
+    if (trace)
       cat("\nApplying the projection method of Hubert.\n")
     
   
@@ -233,30 +233,30 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
     }
 
     outl <- outl_obj$outlyingnessX
-    if(!is.numeric(outl)) {
+    if (!is.numeric(outl)) {
       stop("Something went wrong with the outlyingness computations.")
     }
     
-    if(any(!is.finite(outl)) | any(is.nan(outl))) {
+    if (any(!is.finite(outl)) | any(is.nan(outl))) {
       stop("The obtained outlyingness is not finite or NaN.")
     }
     
-    if(min(outl)<10^(-16)) {
+    if (min(outl)<10^(-16)) {
       stop("The obtained outlyingness is not strictly positive.")
     }
     
-    if(length(outl)!=nrow(X)) {
+    if (length(outl)!=nrow(X)) {
       stop("The obtained outlyingness does not have the correct length.")
     }
     
-    is <- order(outl)  #Order indices by outlyingness   
+    is <- order(outl)  # Order indices by outlyingness   
     H0 <- (1:n) %in% is[1:h]
     Xh <- X[H0, ]                      # the h data points with smallest outlyingness
     #Xh.svd <- classSVD(Xh)
     Xh.svd <- classPC(Xh)
     
     kmax <- min(Xh.svd$rank, kmax)
-    if(trace)
+    if (trace)
       cat("\nEigenvalues: ", Xh.svd$eigenvalues, "\n")
     
     ##
@@ -265,25 +265,25 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
     ## the k-th eigenvalue to the first eigenvalue (sorted decreasingly) is larger than
     ## 10.E/3 and the fraction of the cumulative dispersion is larger or equal 80%
     ##
-    if(k == 0)
+    if (k == 0)
     {
       test <- which(Xh.svd$eigenvalues/Xh.svd$eigenvalues[1] <= 1.E-3)
-      k <- if(length(test) != 0)  min(min(Xh.svd$rank, test[1]), kmax)
+      k <- if (length(test) != 0)  min(min(Xh.svd$rank, test[1]), kmax)
       else                   min(Xh.svd$rank, kmax)
       
       cumulative <- cumsum(Xh.svd$eigenvalues[1:k])/sum(Xh.svd$eigenvalues)
-      if(cumulative[k] > 0.8) {
+      if (cumulative[k] > 0.8) {
         k <- which(cumulative >= 0.8)[1]
       }
-      if(trace)
+      if (trace)
         cat(paste("The number of principal components is set by the algorithm. It is set to ", k, ".\n", sep=""))
     }
     
-    if(trace)
+    if (trace)
       cat("\nXsvd$rank, Xh.svd$rank, k and kmax: ", Xsvd$rank, Xh.svd$rank, k, kmax,"\n")
     
     ## perform extra reweighting step
-    if(k != Xsvd$rank)
+    if (k != Xsvd$rank)
     {
       ## VT::27.08.2010 - bug report from Stephen Milborrow: if n is small relative to p
       ## k can be < Xsvd$rank but larger than Xh.svd$rank - the number of observations in
@@ -297,8 +297,8 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
       Rdiff <- XRc - Xtilde
       odh <- apply(Rdiff, 1, vecnorm)
       
-      #Cutoff for the ODs
-      tmp <- coOD(od=odh,h=h,skew=skew)
+      # Cutoff for the ODs
+      tmp <- coOD(od=odh, h=h, skew=skew)
       odh <- tmp$od
       cutoffodh <- tmp$co.od
       
@@ -321,22 +321,22 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
     
     if (skew) {
       
-      #Adjusted outlyingness in k-dimensional subspace
+      # Adjusted outlyingness in k-dimensional subspace
       outl2 <- adjOutl(X2, options = list(type="Rotation", ndir=ndir))$outlyingnessX
-      H2 <- order(outl2)  #Order indices by outlyingness    
+      H2 <- order(outl2)  # Order indices by outlyingness    
       Xh2 <- X2[H2[1:h], ] # the h data points with smallest outlyingness
       ee <- eigen(cov(Xh2))
       P6 <- ee$vectors
       X2center <- colMeans(Xh2)
-      #MCD is replaced by mean and (sample) covariance of h points with smallest adjusted outlyingness
-      #in the k-dimensional subspace.
+      # MCD is replaced by mean and (sample) covariance of h points with smallest adjusted outlyingness
+      # in the k-dimensional subspace.
       center <- as.vector(center + X2center %*% t(rot))
       eigenvalues <- ee$values
       loadings <- rot %*% P6
-      scores <- sweep(X2,2,X2center,"-") %*% P6
+      scores <- sweep(X2, 2, X2center, "-") %*% P6
       
       
-    }else{
+    } else {
       
       
       ## Perform now MCD on X2 in order to obtain a robust scatter matrix: find h data points whose
@@ -350,8 +350,8 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
 
       niter <- 100
       for(j in 1:niter) {
-        if(trace)
-          cat("\nIter=",j, " h=", h, " k=", k, " obj=", oldobj, "\n")
+        if (trace)
+          cat("\nIter=", j, " h=", h, " k=", k, " obj=", oldobj, "\n")
 
         Xh <- X2[order(mah)[1:h], ]
         Xh <- as.matrix(Xh)
@@ -371,11 +371,11 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
         #mah <- mahalanobis(X2, center=zeros(1, ncol(X2)), cov=diag(Xh.svd$eigenvalues, nrow=length(Xh.svd$eigenvalues)))
         mah <- mahalanobis(X2, center=matrix(0,1, ncol(X2)), cov=diag(Xh.svd$eigenvalues, nrow=length(Xh.svd$eigenvalues)))
         
-        if(Xh.svd$rank == k & abs(oldobj - obj) < 1.E-12)
+        if (Xh.svd$rank == k & abs(oldobj - obj) < 1.E-12)
           break
         
         oldobj <- obj
-        if(Xh.svd$rank < k) {
+        if (Xh.svd$rank < k) {
           j <- 1
           k <- Xh.svd$rank
         }
@@ -383,23 +383,23 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
       
       ## Perform now MCD on X2
       X2mcd <- CovMcd(X2, nsamp=250, alpha=alpha)
-      if(trace)
-        cat("\nMCD crit=",X2mcd@crit," and C-Step obj function=",obj," Abs difference=", abs(X2mcd@crit-obj), "\n")
+      if (trace)
+        cat("\nMCD crit=", X2mcd@crit, " and C-Step obj function=", obj, " Abs difference=", abs(X2mcd@crit-obj), "\n")
       
       ## VT::14.12.2009 - if there is even a slight difference between mcd$crit and obj
       ## and it is on the negative side, the following reweighting step will be triggered,
       ## which could lead to unwanted difference in the results. Therefore compare with
       ## a tolerance 1E-16.
       eps <- 1e-16
-      if(X2mcd@crit < obj + eps)
+      if (X2mcd@crit < obj + eps)
       {
         X2cov <- getCov(X2mcd)
         X2center <- getCenter(X2mcd)
-        if(trace)
+        if (trace)
           cat("\nFinal step - PC of MCD cov used.\n")
-      }else
+      } else
       {
-        consistencyfactor <- median(mah)/qchisq(0.5,k)
+        consistencyfactor <- median(mah)/qchisq(0.5, k)
         mah <- mah/consistencyfactor
         weights <- ifelse(mah <= qchisq(0.975, k), TRUE, FALSE)
         
@@ -408,7 +408,7 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
         wcov <- cov.wt(x=X2, wt=weights, method="ML")
         X2center <- wcov$center
         X2cov <- wcov$cov
-        if(trace)
+        if (trace)
           cat("\nFinal step - PC of a reweighted cov used.\n")
       }
       
@@ -424,8 +424,8 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
     }
   }
 
-  #Change names of columns and/or rows
-  if(is.list(dimnames(data)) && !is.null(dimnames(data)[[1]]))
+  # Change names of columns and/or rows
+  if (is.list(dimnames(data)) && !is.null(dimnames(data)[[1]]))
   {
     dimnames(scores)[[1]] <- dimnames(data)[[1]]
   } else {
@@ -438,12 +438,12 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
   names(H0) <- rownames(scores)
   names(indexset) <- rownames(scores)
 
-  #Compute distances and cutoffs
+  # Compute distances and cutoffs
   A <- distPCA(X=data, Tn=scores, P=loadings, l=eigenvalues, mu=center, h=h, skew=skew)
   if (skew) {
-    #SDs are now adjusted outylingnesses
+    # SDs are now adjusted outylingnesses
     sd <- outl2
-    #Cutoff is defined similarly as cutoff for ODs
+    # Cutoff is defined similarly as cutoff for ODs
     cutoff.sd <- coOD(sd,skew=TRUE)$co.od
   } else {
     sd <- A$sd
@@ -454,11 +454,11 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
     names(sd) <- names(od)
   }
   cutoff.od <- A$cutoff.od
-  flag.sd <- (sd<=cutoff.sd) #FALSE if outlying in PCA subspace
-  flag.od <- (od<=cutoff.od) #FALSE if outlying for OD
-  flag.all <- (flag.od*flag.sd)==1 #FALSE if outlier (all 3 types)
+  flag.sd <- (sd<=cutoff.sd) # FALSE if outlying in PCA subspace
+  flag.od <- (od<=cutoff.od) # FALSE if outlying for OD
+  flag.all <- (flag.od*flag.sd)==1 # FALSE if outlier (all 3 types)
   
-  #Results
+  # Results
   res <- list(loadings=loadings, eigenvalues=eigenvalues, scores=scores,  
               center=center, k=k, H0=H0, H1=indexset, alpha=alpha, h=h,
               sd=sd, od=od, cutoff.sd=cutoff.sd, cutoff.od=cutoff.od,
