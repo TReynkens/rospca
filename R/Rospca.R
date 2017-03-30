@@ -88,8 +88,8 @@ rospca_part1 <- function(x, k=0, kmax=10, alpha=0.75, h=NULL, stand=TRUE, ndir="
   n <- nrow(data)
   p <- ncol(data)
   
-  scale=FALSE
-  signflip=TRUE 
+  scale <- FALSE
+  signflip <- TRUE 
   ## ___Step 1___: Reduce the data space to the affine subspace spanned by the n observations
   ##  Apply svd() to the mean-centered data matrix. If n > p we use the kernel approach -
   ##  the decomposition is based on computing the eigenvalues and eigenvectors of(X-m)(X-m)'
@@ -201,8 +201,7 @@ rospca_part1 <- function(x, k=0, kmax=10, alpha=0.75, h=NULL, stand=TRUE, ndir="
   
   kmax <- min(Xh.svd$rank, kmax)
   if (k == 0) {
-    test <- which(Xh.svd$eigenvalues/Xh.svd$eigenvalues[1] <= 
-                    0.001)
+    test <- which(Xh.svd$eigenvalues/Xh.svd$eigenvalues[1] <= 0.001)
     k <- if (length(test) != 0) 
       min(min(Xh.svd$rank, test[1]), kmax)
     else min(Xh.svd$rank, kmax)
