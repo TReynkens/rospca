@@ -2,7 +2,7 @@
 \title{News for package rospca}
 
 
-\section{Changes in version 1.0.2 (2017-yy-xx)}{
+\section{Changes in version 1.0.2 (2017-04-03)}{
 
  \itemize{
     \item \code{adjOutlyingness} is renamed to \code{adjOutl} in \pkg{mrfDepth} version 1.0.3.
