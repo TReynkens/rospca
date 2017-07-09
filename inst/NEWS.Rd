@@ -2,6 +2,13 @@
 \title{News for package rospca}
 
 
+\section{Changes in version 1.0.3 (2017-yy-xx)}{
+
+ \itemize{
+    \item Enable byte-compilation of package code.
+ }
+}
+
 \section{Changes in version 1.0.2 (2017-04-03)}{
 
  \itemize{

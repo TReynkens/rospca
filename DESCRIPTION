@@ -1,6 +1,6 @@
 Package: rospca
-Version: 1.0.2
-Date: 2017-04-03
+Version: 1.0.2.9000
+Date: 2017-07-09
 Title: Robust Sparse PCA using the ROSPCA Algorithm
 Description: Implementation of robust sparse PCA using the ROSPCA algorithm 
              of Hubert et al. (2016) <DOI:10.1080/00401706.2015.1093962>.
@@ -26,3 +26,4 @@ Imports: stats,
 License: GPL (>= 2)
 URL: https://github.com/TReynkens/rospca
 BugReports: https://github.com/TReynkens/rospca/issues
+ByteCompile: yes
