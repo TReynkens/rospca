@@ -2,10 +2,11 @@
 \title{News for package rospca}
 
 
-\section{Changes in version 1.0.3 (2017-yy-xx)}{
+\section{Changes in version 1.0.3 (2017-10-20)}{
 
  \itemize{
     \item Enable byte-compilation of package code.
+    \item Increase minimum required version of \pkg{mrfDepth} to 1.0.5.
  }
 }
 
