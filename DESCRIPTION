@@ -1,5 +1,5 @@
 Package: rospca
-Version: 1.0.2.9000
+Version: 1.0.3
 Date: 2017-10-20
 Title: Robust Sparse PCA using the ROSPCA Algorithm
 Description: Implementation of robust sparse PCA using the ROSPCA algorithm 
