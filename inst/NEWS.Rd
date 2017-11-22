@@ -2,6 +2,13 @@
 \title{News for package rospca}
 
 
+\section{Changes in version 1.0.4 (20zz-yy-zz)}{
+
+ \itemize{
+    \item Increase minimum required R version to 2.14.0 since byte-compilation of package code is only included since that version.
+ }
+}
+
 \section{Changes in version 1.0.3 (2017-10-20)}{
 
  \itemize{
