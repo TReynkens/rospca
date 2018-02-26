@@ -2,10 +2,11 @@
 \title{News for package rospca}
 
 
-\section{Changes in version 1.0.4 (20zz-yy-zz)}{
+\section{Changes in version 1.0.4 (2018-02-26)}{
 
  \itemize{
     \item Increase minimum required R version to 2.14.0 since byte-compilation of package code is only included since that version.
+    \item Add ORCID ID.
  }
 }
 
