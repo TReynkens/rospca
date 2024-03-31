@@ -15,9 +15,9 @@ rospca <- function(X, k, kmax=10, alpha=0.75, h=NULL, ndir="all", grid=TRUE, lam
   # ndir:           Number of directions used when computing outlyingness (or adjusted outlyingness when skew=TRUE). 
   #                 When "all" (default), we use n choose 2 directions which are all directions through 2 data points.
   #                 Giving ndir > n choose 2 as an input also results in using all directions through 2 data points.  
-  # grid:           If TRUE, the grid version of sparse PCA is used (SPcaGrid with method=sd from the rrcovHD package), 
+  # grid:           If TRUE, the grid version of sparse PCA is used (sPCAgrid with method=sd from the pcaPP package), 
   #                  otherwise the version of Zou et al. is used (spca from the elasticnet package)
-  # lambda:         Sparsity parameter of SPcaGrid (when grid=TRUE) or ridge parameter of spca (when grid=FALSE)
+  # lambda:         Sparsity parameter of sPCAgrid (when grid=TRUE) or ridge parameter of spca (when grid=FALSE)
   # sparse & para:  Parameters for spca (only used when grid=FALSE)
   # stand:          If TRUE, the data are standardised robustly in the beginning and classically before applying sparse PCA.
   #                 If FALSE, the data are only mean-centred before applying sparse PCA.  
@@ -282,8 +282,8 @@ rospca_part2 <- function(X, H0, H1, k, kmax=10, alpha=0.75, h=NULL, grid=TRUE, l
   
   if (grid) {
     # SCoTLASS on the standardised regular observations
-    P1 <- unclass(SPcaGrid(Xh1_stand, k=k, lambda=lambda, method="sd", scale=FALSE, center=rep(0,p),
-                           glo.scatter=1, maxiter=75)@loadings)
+    P1 <- unclass(sPCAgrid(Xh1_stand, k=k, lambda=lambda, method="sd", scale=NULL, center=rep(0,p),
+                           glo.scatter=1, maxiter=75)$loadings[, 1:k])
   } else {
     # SPCA on the standardised regular observations
     P1 <- spca(Xh1_stand, K=k, para=para, sparse=sparse, lambda=lambda)$loadings
@@ -313,8 +313,8 @@ rospca_part2 <- function(X, H0, H1, k, kmax=10, alpha=0.75, h=NULL, grid=TRUE, l
   if (grid) {
     pp <- length(index)
     # SCoTLASS on the standardised observations with indices in H2
-    P2[index,] <- SPcaGrid(Xh2_stand[,index], k=k, lambda=lambda, method="sd", scale=FALSE, center=rep(0,pp),
-                           glo.scatter=1, maxiter=75)@loadings
+    P2[index,] <- sPCAgrid(Xh2_stand[,index], k=k, lambda=lambda, method="sd", scale=NULL, center=rep(0,pp),
+                           glo.scatter=1, maxiter=75)$loadings[, 1:k]
   } else {
     # SPCA on the standardised observations with indices in H2
     P2[index,] <- spca(Xh2_stand[,index], K=k, para=para, sparse=sparse, lambda=lambda)$loadings

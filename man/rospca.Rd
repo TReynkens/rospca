@@ -22,8 +22,8 @@ rospca(X, k, kmax = 10, alpha = 0.75, h = NULL, ndir = "all", grid = TRUE,
 \item{alpha}{Robustness parameter, default is 0.75.}
 \item{h}{The number of outliers the algorithm should resist is given by \eqn{n-h}. Any value for \code{h} between \eqn{n/2} and \eqn{n} may be specified. Default is \code{NULL} which uses \code{h=ceiling(alpha*n)+1}. Do not specify \code{alpha} and \code{h} at the same time. }
 \item{ndir}{Number of directions used when computing the outlyingness (or the adjusted outlyingness when \code{skew=TRUE}), see \code{\link[mrfDepth]{outlyingness}} and \code{\link[mrfDepth]{adjOutl}} for more details.}
-\item{grid}{Logical indicating if the grid version of sparse PCA should be used (\code{SPcaGrid} with \code{method="sd"} from \pkg{rrcovHD}). Otherwise, the version of Zou et al. (2006) is used (\code{spca} from \pkg{elasticnet}). Default is \code{TRUE}.}
-\item{lambda}{Sparsity parameter of \code{SPcaGrid} (when \code{grid=TRUE}) or ridge parameter of \code{spca} (when
+\item{grid}{Logical indicating if the grid version of sparse PCA should be used (\code{sPCAgrid} with \code{method="sd"} from \pkg{pcaPP}). Otherwise, the version of Zou et al. (2006) is used (\code{spca} from \pkg{elasticnet}). Default is \code{TRUE}.}
+\item{lambda}{Sparsity parameter of \code{sPCAgrid} (when \code{grid=TRUE}) or ridge parameter of \code{spca} (when
       \code{grid=FALSE}), default is \eqn{10^{-6}}.}
 \item{sparse}{Parameter for \code{spca} (only used when \code{grid=FALSE}), see \code{\link[elasticnet]{spca}} for more details.}
 \item{para}{Parameter for \code{spca} (only used when \code{grid=FALSE}), see \code{\link[elasticnet]{spca}} for more details.}
@@ -100,7 +100,7 @@ Tom Reynkens, based on R code from Valentin Todorov for \code{PcaHubert} in \pkg
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-\code{\link[rrcov]{PcaHubert}}, \code{\link{robpca}}, \code{\link[mrfDepth]{outlyingness}}, \code{\link[mrfDepth]{adjOutl}}, \code{\link[rrcovHD]{SPcaGrid}}, \code{\link[elasticnet]{spca}}
+\code{\link[rrcov]{PcaHubert}}, \code{\link{robpca}}, \code{\link[mrfDepth]{outlyingness}}, \code{\link[mrfDepth]{adjOutl}}, \code{\link[pcaPP]{sPCAgrid}}, \code{\link[elasticnet]{spca}}
 }
 
 \examples{

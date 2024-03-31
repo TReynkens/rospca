@@ -3,6 +3,18 @@
 # General function for simulations             #
 ###############################################
 
+# Auxiliary output functions
+# res is a result of class sPCAgrid
+# X is the data frame
+# k is the number of principal components
+aux_output <- function(res, X, k) {
+  
+  eigenvalues <- (res$sdev^2)[1:k]
+  distances <- distPCA(X=X, Tn=res$scores, P=res$loadings, l=eigenvalues)
+  return(list(loadings=res$loadings, eigenvalues=eigenvalues, Xst=X, scores=res$scores, od=distances$od, sd=distances$sd))
+
+}
+
 # Selection of method, the function f_pca will always at least return the loadings matrix, 
 # the eigenvalues and Xst.
 # lambda_def is the default value of lambda for the Grid based sparse methods
@@ -24,9 +36,9 @@ select_method <- function (method = "CPCA", k = 2, alpha = 0.75, lambda_def = 0,
     function (X) { 
       if (stand) {Xst=matStand(X, f_c=median, f_s=qn)$data
       } else {Xst <- X}
-      A <- SPcaGrid(Xst, k=k, method="qn", lambda=0, scale=FALSE, center=rep(0, ncol(Xst)), glo.scatter=1, maxiter=75)
-      return(list(loadings=A@loadings, eigenvalues=A@eigenvalues, Xst=Xst, scores=A@scores, od=A@od, sd=A@sd))}
-    
+      A <- sPCAgrid(Xst, k=k, method="qn", lambda=0, scale=NULL, center=rep(0, ncol(Xst)), glo.scatter=1, maxiter=75)
+      return(aux_output(res=A, X=Xst, k=k))}   
+      
   }, "ROBPCA"={
     function (X) { 
       if (stand) {Xst=matStand(X, f_c=median, f_s=qn)$data
@@ -37,17 +49,17 @@ select_method <- function (method = "CPCA", k = 2, alpha = 0.75, lambda_def = 0,
     function (X, lambda=lambda_def) { 
       if (stand) {Xst=matStand(X, f_c=mean, f_s=sd)$data
       } else {Xst <- X}
-      A <- SPcaGrid(Xst, k=k, method="sd", lambda=lambda, scale=FALSE, center=rep(0, ncol(Xst)), 
+      A <- sPCAgrid(Xst, k=k, method="sd", lambda=lambda, scale=NULL, center=rep(0, ncol(Xst)), 
                     glo.scatter=1, maxiter=75)
-      return(list(loadings=A@loadings, eigenvalues=A@eigenvalues, Xst=Xst, scores=A@scores, od=A@od, sd=A@sd))}
+      return(aux_output(res=A, X=Xst, k=k))}
     
   }, "SRPCA"={
     function (X, lambda=lambda_def) { 
       if (stand) {Xst=matStand(X, f_c=median, f_s=qn)$data
       } else {Xst <- X}
-      A <- SPcaGrid(Xst, k=k, method="qn", lambda=lambda, scale=FALSE, center=rep(0, ncol(Xst)), 
+      A <- sPCAgrid(Xst, k=k, method="qn", lambda=lambda, scale=NULL, center=rep(0, ncol(Xst)), 
                     glo.scatter=1, maxiter=75)
-      return(list(loadings=A@loadings, eigenvalues=A@eigenvalues, Xst=Xst, scores=A@scores, od=A@od, sd=A@sd))}
+      return(aux_output(res=A, X=Xst, k=k))}
     
   }, "ROSPCA"={
     # We can directly return the output from rospca because it is in a list format.
