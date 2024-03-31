@@ -282,7 +282,7 @@ rospca_part2 <- function(X, H0, H1, k, kmax=10, alpha=0.75, h=NULL, grid=TRUE, l
   
   if (grid) {
     # SCoTLASS on the standardised regular observations
-    P1 <- unclass(sPCAgrid(Xh1_stand, k=k, lambda=lambda, method="sd", scale=NULL, center=rep(0,p),
+    P1 <- as.matrix(sPCAgrid(Xh1_stand, k=k, lambda=lambda, method="sd", scale=NULL, center=rep(0,p),
                            glo.scatter=1, maxiter=75)$loadings[, 1:k])
   } else {
     # SPCA on the standardised regular observations
@@ -325,7 +325,7 @@ rospca_part2 <- function(X, H0, H1, k, kmax=10, alpha=0.75, h=NULL, grid=TRUE, l
   
   # Eigenvalues are variances of sparse PCs of observations in H2
   # We use a robust measure of scale because good leverage points can still be present.
-  l1 <- apply(TT[H2,], 2, qn)^2   
+  l1 <- apply(as.matrix(TT[H2,]), 2, qn)^2   
   
   ##
   # SD reweighting
@@ -361,15 +361,15 @@ rospca_part2 <- function(X, H0, H1, k, kmax=10, alpha=0.75, h=NULL, grid=TRUE, l
   TT <- sweep(X, 2, mu, "-")%*%P2 #Scores matrix (now we use X because scores of all observations!)
   
   # New eigenvalues
-  l1 <- apply(TT[H3,], 2, var)   
+  l1 <- apply(as.matrix(TT[H3,]), 2, var)   
   # End SD reweighting
   
   # Sort eigenvalues in decreasing order
   sorted <- sort(l1, index=TRUE, decreasing=TRUE)
   l <- sorted$x; ix <- sorted$ix
   
-  P <- P2[,ix] # Final loadings matrix
-  Tn <- TT[,ix] # Final scores matrix
+  P <- as.matrix(P2[,ix]) # Final loadings matrix
+  Tn <- as.matrix(TT[,ix]) # Final scores matrix
   
   # Change names of columns
   s <- paste("PC", 1:k, sep="")

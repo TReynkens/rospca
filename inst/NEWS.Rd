@@ -5,6 +5,7 @@
 
  \itemize{
     \item Remove dependecy on \pkg{rrcovHD} as requested by Valentin Todorov, its maintainer.
+    \item Fix bug in \code{rospca} for \code{k=1}.
  } 
 }
 
