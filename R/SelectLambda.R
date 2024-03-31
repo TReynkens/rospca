@@ -88,7 +88,7 @@ selectLambda <- function (X, k, kmax = 10, method = "ROSPCA", lmin = 0, lmax = 2
     f_IC <- function (x) {Bic(x, fs=qn, V0=V0, Xcen=Xcen)}; type="BIC"
     
   } else {
-    stop("Invalid method, use \"ROSPCAg\", \"SPCAg\", \"SCoTLASS\" or \"SRPCA\".")
+    stop("Invalid method, use \"ROSPCA\", \"ROSPCAg\", \"SPCAg\", \"SCoTLASS\" or \"SRPCA\".")
   }
   
   if (is.null(P)) {
