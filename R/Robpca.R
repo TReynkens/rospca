@@ -60,7 +60,7 @@ robpca <- function (x, k = 0, kmax = 10, alpha = 0.75, h = NULL, mcd = FALSE, nd
   ##                  The regular observations receive flag 1.
 
   # Based on code for ROBPCA in 'rrcov' package ('PcaHubert' function) by Valentin Todorov.
-  # Author: Tom Reynkens (tomreynkens@hotmail.com)
+  # Author: Tom Reynkens
   
   # The number of subsets used in covMCD (MCD version) is set to 1000.
   # When not using the MCD version, the outlyingness measure is now computed using the 

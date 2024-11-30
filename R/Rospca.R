@@ -54,7 +54,7 @@ rospca <- function(X, k, kmax=10, alpha=0.75, h=NULL, ndir="all", grid=TRUE, lam
   #                  The regular observations receive flag 1.
   #
   # Based on code for ROBPCA in 'rrcov' package ('PcaHubert' function) by Valentin Todorov.
-  # Author: Tom Reynkens (tomreynkens@hotmail.com)
+  # Author: Tom Reynkens
   
   # The code for ROBPCA from the 'rrcov' package ('PcaHubert' function) up to the reweighting step forms 
   # the basis of the function 'rospca_part1'.

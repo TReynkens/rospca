@@ -1,10 +1,18 @@
 \name{NEWS}
 \title{News for package rospca}
 
+
+\section{Changes in version 1.1.1 (2024-11-30)}{
+
+ \itemize{
+    \item Change maintainer email address.
+ } 
+}
+
 \section{Changes in version 1.1.0 (2024-03-31)}{
 
  \itemize{
-    \item Remove dependecy on \pkg{rrcovHD} as requested by Valentin Todorov, its maintainer.
+    \item Remove dependency on \pkg{rrcovHD} as requested by Valentin Todorov, its maintainer.
     \item Fix bug in \code{rospca} for \code{k=1}.
  } 
 }

@@ -1,16 +1,16 @@
 Package: rospca
-Version: 1.1.0
-Date: 2024-03-31
+Version: 1.1.1
+Date: 2024-11-30
 Title: Robust Sparse PCA using the ROSPCA Algorithm
 Description: Implementation of robust sparse PCA using the ROSPCA algorithm 
              of Hubert et al. (2016) <DOI:10.1080/00401706.2015.1093962>.
 Authors@R: c(
-             person("Tom", "Reynkens", email = "tomreynkens@hotmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-5516-5107")), 
+             person("Tom", "Reynkens", email = "tomreynkens.r@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-5516-5107")), 
              person("Valentin", "Todorov", role = "ctb", comment = "Original R code for PcaHubert and diagnostic plot in rrcov package"), 
              person("Mia", "Hubert", role = "ctb"), 
              person("Eric", "Schmitt", role = "ctb"), 
              person("Tim", "Verdonck", role = "ctb"))
-Maintainer: Tom Reynkens <tomreynkens@hotmail.com>
+Maintainer: Tom Reynkens <tomreynkens.r@gmail.com>
 Depends: R (>= 2.14.0)
 Imports: stats, 
          graphics, 
